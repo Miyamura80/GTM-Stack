@@ -18,6 +18,10 @@
 - [ ] **Apollo API** — Sales intelligence and prospecting
 - [ ] **Million Verifier API** — Email verification and validation
 
+## Security
+
+- [ ] Re-init Postgres API key due to potential leak
+
 ## Code Quality
 
 ### Medium Priority
