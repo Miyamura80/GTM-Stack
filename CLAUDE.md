@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Super-opinionated Python stack for fast development. Python >= 3.12 required. Uses `uv` for dependency management (not pip).
+Go-To-Market automation stack built with Claude Code. Supports podcast aggregation, morning briefs, task management, ad creation, and image/diagram generation. Integrates with Telegram, email, PhantomBuster, logo.dev, Apify, Apollo API, and Million Verifier API. Python >= 3.12 required. Uses `uv` for dependency management (not pip).
 
 ## Common Commands
 
