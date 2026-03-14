@@ -26,6 +26,8 @@
 | **Task Manager & Prioritiser** | Intelligent task management with automatic prioritisation | Planned |
 | **Ad Creation** | Automated ad copy and creative generation | Planned |
 | **Images & Diagram Creation** | Generate images and diagrams for marketing and sales collateral | Planned |
+| **Content Repurposing** | Clip and repurpose YouTube video segments | Planned |
+| **Marketing Copy** | Generate marketing copy for campaigns and collateral | Planned |
 
 ## Integrations
 
@@ -38,6 +40,7 @@
 | **Apify** | Web scraping and data extraction |
 | **Apollo API** | Sales intelligence and prospecting |
 | **Million Verifier API** | Email verification and validation |
+| **GWS (Google Workspace CLI)** | Google Workspace automation |
 
 ## Quick Start
 
