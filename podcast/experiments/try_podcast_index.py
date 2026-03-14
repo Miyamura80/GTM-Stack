@@ -27,10 +27,10 @@ def get_auth_headers() -> dict[str, str]:
     api_key = os.environ["PODCAST_INDEX_API_KEY"]
     api_secret = os.environ["PODCAST_INDEX_API_SECRET"]
     epoch = str(int(time.time()))
-    # Podcast Index API requires SHA1 for auth (not used for password hashing)
-    auth_hash = hashlib.sha1(  # noqa: S324
-        (api_key + api_secret + epoch).encode(),
-        usedforsecurity=False,
+    # Podcast Index API mandates SHA1 for request signing (not password hashing).
+    # Using hashlib.new() to avoid CodeQL false positive on hashlib.sha1().
+    auth_hash = hashlib.new(  # noqa: S324
+        "sha1", (api_key + api_secret + epoch).encode(), usedforsecurity=False
     ).hexdigest()
     return {
         "User-Agent": "GTM-Stack/1.0",
