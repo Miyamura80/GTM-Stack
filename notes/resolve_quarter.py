@@ -7,13 +7,13 @@ Usage:
 
 import argparse
 import math
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 
 def get_quarter_dir() -> Path:
     """Return the notes quarter directory for the current UTC date."""
-    now = datetime.now(timezone.utc)
+    now = datetime.now(UTC)
     quarter = math.ceil(now.month / 3)
     return Path("notes") / str(now.year) / f"Q{quarter}-{now.year}"
 

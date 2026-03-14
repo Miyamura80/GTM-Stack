@@ -31,28 +31,28 @@ def get_headers() -> dict[str, str]:
 def search_podcast(name: str, with_transcript: bool = False) -> dict:
     """Search for a podcast by name and optionally fetch transcripts."""
     transcript_field = "transcript" if with_transcript else ""
-    query = """
-    {
-        searchForTerm(term: "%s", filterForType: PODCASTSERIES) {
+    query = f"""
+    {{
+        searchForTerm(term: "{name}", filterForType: PODCASTSERIES) {{
             searchId
-            podcastSeries {
+            podcastSeries {{
                 uuid
                 name
                 itunesId
                 description
                 totalEpisodesCount
-                episodes(first: 3) {
+                episodes(first: 3) {{
                     uuid
                     name
                     datePublished
                     audioUrl
                     duration
-                    %s
-                }
-            }
-        }
-    }
-    """ % (name, transcript_field)
+                    {transcript_field}
+                }}
+            }}
+        }}
+    }}
+    """
 
     r = requests.post(
         TADDY_URL,
@@ -67,24 +67,24 @@ def search_podcast(name: str, with_transcript: bool = False) -> dict:
 def get_podcast_by_id(itunes_id: int, with_transcript: bool = False) -> dict:
     """Get a podcast by iTunes ID."""
     transcript_field = "transcript" if with_transcript else ""
-    query = """
-    {
-        getPodcastSeries(itunesId: %d) {
+    query = f"""
+    {{
+        getPodcastSeries(itunesId: {itunes_id}) {{
             uuid
             name
             description
             totalEpisodesCount
-            episodes(first: 5) {
+            episodes(first: 5) {{
                 uuid
                 name
                 datePublished
                 audioUrl
                 duration
-                %s
-            }
-        }
-    }
-    """ % (itunes_id, transcript_field)
+                {transcript_field}
+            }}
+        }}
+    }}
+    """
 
     r = requests.post(
         TADDY_URL,
