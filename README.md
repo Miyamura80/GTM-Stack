@@ -1,68 +1,53 @@
-# Python-Template
+# GTM-Stack
 
 <p align="center">
-  <img src="media/banner.png" alt="2" width="400">
+  <img src="media/banner.png" alt="GTM-Stack" width="400">
 </p>
 
 <p align="center">
-<b>Opinionated Python project stack. 🔋 Batteries included. </b>
+<b>Go-To-Market automation stack, built with Claude Code.</b>
 </p>
 
 <p align="center">
-<p align="center">
-  <a href="#key-features">Key Features</a> •
+  <a href="#automations">Automations</a> •
+  <a href="#integrations">Integrations</a> •
   <a href="#quick-start">Quick Start</a> •
-  <a href="#configuration">Configuration</a> •
-  <a href="#credits">Credits</a> •
-  <a href="#about-the-core-contributors">About the Core Contributors</a>
+  <a href="#configuration">Configuration</a>
 </p>
 
-</p>
+---
 
-<p align="center">
-  <img alt="Project Version" src="https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FMiyamura80%2FPython-Template%2Fmain%2Fpyproject.toml&query=%24.project.version&label=version&color=blue">
-  <img alt="Python Version" src="https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FMiyamura80%2FPython-Template%2Fmain%2Fpyproject.toml&query=%24.project['requires-python']&label=python&logo=python&color=blue">
-  <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/Miyamura80/Python-Template">
-  <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/Miyamura80/Python-Template/test_target_tests.yaml?branch=main">
+## Automations
 
-</p>
+| Automation | Description | Status |
+|------------|-------------|--------|
+| **Podcast Aggregation** | Aggregate and process podcast information for research and outreach | Planned |
+| **Morning Brief** | Daily digest of key GTM signals and priorities | Planned |
+| **Task Manager & Prioritiser** | Intelligent task management with automatic prioritisation | Planned |
+| **Ad Creation** | Automated ad copy and creative generation | Planned |
+| **Images & Diagram Creation** | Generate images and diagrams for marketing and sales collateral | Planned |
 
---- 
+## Integrations
 
-<p align="center">
-  <img src="media/promo_animation.gif" alt="Python-Template features animation" width="600">
-</p>
-
-
-## Key Features
-
-Opinionated Python stack for fast development. The `saas` branch extends `main` with web framework, auth, and payments.
-
-| Feature | `main` | `saas` |
-|---------|:------:|:------:|
-| UV + Pydantic config | ✅ | ✅ |
-| CI/Linters (Ruff, Vulture) | ✅ | ✅ |
-| Pre-commit hooks (prek) | ✅ | ✅ |
-| LLM (DSPY + LangFuse Observability) | ✅ | ✅ |
-| FastAPI + Uvicorn | ❌ | ✅ |
-| SQLAlchemy + Alembic | ❌ | ✅ |
-| Auth (WorkOS + API keys) | ❌ | ✅ |
-| Payments (Stripe) | ❌ | ✅ |
-| Referrals + Agent system | ❌ | ✅ |
-| Ralph Wiggum Agent Loop | ✅ | ✅ |
-
-[Full comparison](manual_docs/branch_comparison.md)
+| Integration | Purpose |
+|-------------|---------|
+| **Telegram** | Messaging and notifications |
+| **Email** | Newsletter distribution |
+| **PhantomBuster** | LinkedIn and social media automation |
+| **logo.dev** | Company logo fetching |
+| **Apify** | Web scraping and data extraction |
+| **Apollo API** | Sales intelligence and prospecting |
+| **Million Verifier API** | Email verification and validation |
 
 ## Quick Start
 
-- `make onboard` - interactive onboarding CLI (rename, deps, env, hooks, media)
-- `make all` - sync deps and run `main.py`
-- `make fmt` - runs `ruff format` + JSON formatting
-- `make test` - runs all tests in `tests/`
-- `make ci` - runs all CI checks (ruff, vulture, ty, etc.)
-
-
-
+```bash
+make onboard       # Interactive onboarding CLI (rename, deps, env, hooks, media)
+make all           # Sync deps and run main.py
+make fmt           # Run ruff format + JSON formatting
+make test          # Run all tests in tests/
+make ci            # Run all CI checks (ruff, vulture, ty, etc.)
+```
 
 ## Configuration
 
@@ -78,19 +63,17 @@ global_config.OPENAI_API_KEY
 
 [Full configuration docs](manual_docs/configuration.md)
 
+## Tech Stack
+
+- **Python >= 3.12** with `uv` for dependency management
+- **LLM inference** via DSPY + LangFuse observability
+- **CI/Linters**: Ruff, Vulture, ty
+- **Pre-commit hooks** via prek
+
 ## Credits
 
-This software uses the following tools:
-- [Cursor: The AI Code Editor](https://cursor.com)
+- [Claude Code](https://claude.ai/code)
 - [uv](https://docs.astral.sh/uv/)
 - [prek: Rust-based pre-commit framework](https://github.com/j178/prek)
 - [DSPY: Pytorch for LLM Inference](https://dspy.ai/)
 - [LangFuse: LLM Observability Tool](https://langfuse.com/)
-
-## About the Core Contributors
-
-<a href="https://github.com/Miyamura80/Python-Template/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Miyamura80/Python-Template" />
-</a>
-
-Made with [contrib.rocks](https://contrib.rocks).
