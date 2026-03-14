@@ -16,7 +16,7 @@ import sys
 from pathlib import Path
 
 try:
-    import whisper
+    import whisper  # type: ignore[unresolved-import]
 except ImportError:
     print("Whisper not installed. Run: uv pip install openai-whisper")
     print("Also ensure ffmpeg is installed: brew install ffmpeg")
