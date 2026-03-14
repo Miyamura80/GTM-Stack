@@ -148,7 +148,7 @@ User notes stored as markdown, organized by `notes/<year>/Q<n>-<year>/`. Only cr
 1. Run `make notes_dir` to get/create the current quarter directory (prints the path)
 2. Write a kebab-case `.md` file into that path: `<topic>-<YYYY-MM-DD>.md` (date optional for non-date-specific notes)
 
-Never hardcode the quarter — always use `make notes_dir`. One topic per file.
+Never hardcode the quarter - always use `make notes_dir`. One topic per file.
 
 ## Deprecated
 

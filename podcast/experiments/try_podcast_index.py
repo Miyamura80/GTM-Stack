@@ -27,7 +27,11 @@ def get_auth_headers() -> dict[str, str]:
     api_key = os.environ["PODCAST_INDEX_API_KEY"]
     api_secret = os.environ["PODCAST_INDEX_API_SECRET"]
     epoch = str(int(time.time()))
-    auth_hash = hashlib.sha1((api_key + api_secret + epoch).encode()).hexdigest()
+    # Podcast Index API requires SHA1 for auth (not used for password hashing)
+    auth_hash = hashlib.sha1(  # noqa: S324
+        (api_key + api_secret + epoch).encode(),
+        usedforsecurity=False,
+    ).hexdigest()
     return {
         "User-Agent": "GTM-Stack/1.0",
         "X-Auth-Key": api_key,
