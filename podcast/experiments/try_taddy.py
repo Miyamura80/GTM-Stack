@@ -11,6 +11,7 @@ Usage:
 import argparse
 import json
 import os
+from typing import Any
 
 import requests
 from dotenv import load_dotenv
@@ -28,68 +29,62 @@ def get_headers() -> dict[str, str]:
     }
 
 
-def search_podcast(name: str, with_transcript: bool = False) -> dict:
+def _episode_fields(with_transcript: bool) -> str:
+    """Return the GraphQL episode fields fragment."""
+    base = "uuid name datePublished audioUrl duration"
+    return f"{base} transcript" if with_transcript else base
+
+
+def search_podcast(name: str, with_transcript: bool = False) -> dict[str, Any]:
     """Search for a podcast by name and optionally fetch transcripts."""
-    transcript_field = "transcript" if with_transcript else ""
-    query = f"""
-    {{
-        searchForTerm(term: "{name}", filterForType: PODCASTSERIES) {{
+    query = """
+    query SearchPodcast($term: String!) {
+        searchForTerm(term: $term, filterForType: PODCASTSERIES) {
             searchId
-            podcastSeries {{
+            podcastSeries {
                 uuid
                 name
                 itunesId
                 description
                 totalEpisodesCount
-                episodes(first: 3) {{
-                    uuid
-                    name
-                    datePublished
-                    audioUrl
-                    duration
-                    {transcript_field}
-                }}
-            }}
-        }}
-    }}
-    """
+                episodes(first: 3) {
+                    EPISODE_FIELDS
+                }
+            }
+        }
+    }
+    """.replace("EPISODE_FIELDS", _episode_fields(with_transcript))
 
     r = requests.post(
         TADDY_URL,
         headers=get_headers(),
-        json={"query": query},
+        json={"query": query, "variables": {"term": name}},
         timeout=30,
     )
     r.raise_for_status()
     return r.json()
 
 
-def get_podcast_by_id(itunes_id: int, with_transcript: bool = False) -> dict:
+def get_podcast_by_id(itunes_id: int, with_transcript: bool = False) -> dict[str, Any]:
     """Get a podcast by iTunes ID."""
-    transcript_field = "transcript" if with_transcript else ""
-    query = f"""
-    {{
-        getPodcastSeries(itunesId: {itunes_id}) {{
+    query = """
+    query GetPodcast($itunesId: Int!) {
+        getPodcastSeries(itunesId: $itunesId) {
             uuid
             name
             description
             totalEpisodesCount
-            episodes(first: 5) {{
-                uuid
-                name
-                datePublished
-                audioUrl
-                duration
-                {transcript_field}
-            }}
-        }}
-    }}
-    """
+            episodes(first: 5) {
+                EPISODE_FIELDS
+            }
+        }
+    }
+    """.replace("EPISODE_FIELDS", _episode_fields(with_transcript))
 
     r = requests.post(
         TADDY_URL,
         headers=get_headers(),
-        json={"query": query},
+        json={"query": query, "variables": {"itunesId": itunes_id}},
         timeout=30,
     )
     r.raise_for_status()

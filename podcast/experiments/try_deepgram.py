@@ -18,6 +18,7 @@ import argparse
 import json
 import os
 from pathlib import Path
+from typing import Any
 
 import requests
 from dotenv import load_dotenv
@@ -35,7 +36,7 @@ def get_headers() -> dict[str, str]:
 
 def transcribe_url(
     audio_url: str, diarize: bool = False, smart_format: bool = True
-) -> dict:
+) -> dict[str, Any]:
     """Transcribe audio from a URL."""
     params = {
         "model": "nova-3",
@@ -57,7 +58,7 @@ def transcribe_url(
 
 def transcribe_file(
     file_path: str, diarize: bool = False, smart_format: bool = True
-) -> dict:
+) -> dict[str, Any]:
     """Transcribe a local audio file."""
     path = Path(file_path)
     if not path.exists():
@@ -93,7 +94,7 @@ def transcribe_file(
     return r.json()
 
 
-def print_transcript(data: dict, diarize: bool = False) -> None:
+def print_transcript(data: dict[str, Any], diarize: bool = False) -> None:
     """Pretty-print a Deepgram transcript response."""
     results = data.get("results", {})
     channels = results.get("channels", [])

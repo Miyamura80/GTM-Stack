@@ -14,6 +14,7 @@ import argparse
 import json
 import sys
 from pathlib import Path
+from typing import Any
 
 try:
     import whisper  # type: ignore[unresolved-import]
@@ -23,7 +24,7 @@ except ImportError:
     sys.exit(1)
 
 
-def transcribe(file_path: str, model_name: str = "base", timestamps: bool = False) -> dict:
+def transcribe(file_path: str, model_name: str = "base") -> dict[str, Any]:
     """Transcribe a local audio file using Whisper."""
     path = Path(file_path)
     if not path.exists():
@@ -52,7 +53,7 @@ def main() -> None:
     parser.add_argument("--raw", action="store_true", help="Print raw JSON output")
     args = parser.parse_args()
 
-    result = transcribe(args.file, args.model, args.timestamps)
+    result = transcribe(args.file, args.model)
 
     if args.raw:
         # Segments contain numpy types, so serialize carefully

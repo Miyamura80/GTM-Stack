@@ -14,6 +14,7 @@ import json
 import os
 import sys
 import time
+from typing import Any
 
 import requests
 from dotenv import load_dotenv
@@ -40,7 +41,7 @@ def get_auth_headers() -> dict[str, str]:
     }
 
 
-def search_podcasts(query: str, max_results: int = 10) -> dict:
+def search_podcasts(query: str, max_results: int = 10) -> dict[str, Any]:
     """Search for podcasts by keyword."""
     r = requests.get(
         f"{BASE_URL}/search/byterm",
@@ -52,7 +53,7 @@ def search_podcasts(query: str, max_results: int = 10) -> dict:
     return r.json()
 
 
-def get_episodes(feed_id: int, max_results: int = 5) -> dict:
+def get_episodes(feed_id: int, max_results: int = 5) -> dict[str, Any]:
     """Get recent episodes for a podcast by feed ID."""
     r = requests.get(
         f"{BASE_URL}/episodes/byfeedid",
@@ -64,7 +65,7 @@ def get_episodes(feed_id: int, max_results: int = 5) -> dict:
     return r.json()
 
 
-def get_trending(max_results: int = 10) -> dict:
+def get_trending(max_results: int = 10) -> dict[str, Any]:
     """Get trending podcasts."""
     r = requests.get(
         f"{BASE_URL}/podcasts/trending",

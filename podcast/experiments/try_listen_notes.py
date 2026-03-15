@@ -17,6 +17,7 @@ Usage:
 import argparse
 import json
 import os
+from typing import Any
 
 import requests
 from dotenv import load_dotenv
@@ -38,7 +39,7 @@ def search(
     search_type: str = "podcast",
     max_results: int = 10,
     use_test: bool = False,
-) -> dict:
+) -> dict[str, Any]:
     """Search for podcasts or episodes."""
     base = TEST_URL if use_test else REAL_URL
     r = requests.get(
@@ -51,7 +52,7 @@ def search(
     return r.json()
 
 
-def get_best_podcasts(genre_id: int = 93, use_test: bool = False) -> dict:
+def get_best_podcasts(genre_id: int = 93, use_test: bool = False) -> dict[str, Any]:
     """Get best/popular podcasts by genre. Genre 93 = Business."""
     base = TEST_URL if use_test else REAL_URL
     r = requests.get(
