@@ -96,6 +96,7 @@ function PhotoCard({ node }: { node: BoardNode }) {
           alt={node.label}
           className="max-w-full max-h-full object-contain"
           draggable={false}
+          onError={(e) => { e.currentTarget.style.display = "none"; }}
         />
       </div>
       <div className="px-2 py-1.5 border-t border-gray-100">
@@ -129,6 +130,7 @@ function PolaroidCard({ node }: { node: BoardNode }) {
           alt={node.label}
           className="max-w-full max-h-full object-contain"
           draggable={false}
+          onError={(e) => { e.currentTarget.style.display = "none"; }}
         />
       </div>
       <div className="py-2.5 px-1">
@@ -181,6 +183,7 @@ function PostItCard({ node }: { node: BoardNode }) {
           alt={node.label}
           className="max-w-full max-h-full object-contain"
           draggable={false}
+          onError={(e) => { e.currentTarget.style.display = "none"; }}
         />
       </div>
 
@@ -224,6 +227,7 @@ function ClippingCard({ node }: { node: BoardNode }) {
           alt={node.label}
           className="max-w-full max-h-full object-contain"
           draggable={false}
+          onError={(e) => { e.currentTarget.style.display = "none"; }}
         />
       </div>
       <p className="text-[11px] font-bold text-gray-800 text-center leading-tight tracking-tight">

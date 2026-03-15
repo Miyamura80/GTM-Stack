@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useRef, useState, useLayoutEffect } from "react";
-import { getBoardBySlug } from "../hooks/board_utils";
+import { getBoardBySlug } from "../utils/board_utils";
 import { BoardHeader } from "./BoardHeader";
 import { NodeCard } from "./NodeCard";
 import { ConnectionLine } from "./ConnectionLine";

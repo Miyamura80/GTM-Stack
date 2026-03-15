@@ -56,7 +56,7 @@ export function ConnectionLine({
   const labelX = midX + wobble * 0.2;
   const labelY = midY + sag * 0.55;
 
-  const uid = edge.id.replace(/[^a-zA-Z0-9]/g, "");
+  const uid = `edge_${edge.id.replace(/[^a-zA-Z0-9_-]/g, "_")}`;
 
   return (
     <g>
@@ -92,9 +92,9 @@ export function ConnectionLine({
       {edge.label && (
         <g>
           <rect
-            x={labelX - edge.label.length * 4 - 8}
+            x={labelX - edge.label.length * 3.25 - 10}
             y={labelY - 8}
-            width={edge.label.length * 8 + 16}
+            width={edge.label.length * 6.5 + 20}
             height={16}
             rx={2}
             fill="#fffef5"
