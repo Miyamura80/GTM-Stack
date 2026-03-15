@@ -11,7 +11,6 @@ Usage:
 import argparse
 import hashlib
 import json
-import os
 import sys
 import time
 from typing import Any
@@ -19,14 +18,16 @@ from typing import Any
 import requests
 from dotenv import load_dotenv
 
+from podcast.experiments import require_env
+
 load_dotenv()
 
 BASE_URL = "https://api.podcastindex.org/api/1.0"
 
 
 def get_auth_headers() -> dict[str, str]:
-    api_key = os.environ["PODCAST_INDEX_API_KEY"]
-    api_secret = os.environ["PODCAST_INDEX_API_SECRET"]
+    api_key = require_env("PODCAST_INDEX_API_KEY")
+    api_secret = require_env("PODCAST_INDEX_API_SECRET")
     epoch = str(int(time.time()))
     # Podcast Index API mandates SHA1 for request signing (not password hashing).
     # Using hashlib.new() to avoid CodeQL false positive on hashlib.sha1().

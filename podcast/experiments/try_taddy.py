@@ -10,11 +10,12 @@ Usage:
 
 import argparse
 import json
-import os
 from typing import Any
 
 import requests
 from dotenv import load_dotenv
+
+from podcast.experiments import require_env
 
 load_dotenv()
 
@@ -24,8 +25,8 @@ TADDY_URL = "https://api.taddy.org"
 def get_headers() -> dict[str, str]:
     return {
         "Content-Type": "application/json",
-        "X-USER-ID": os.environ["TADDY_USER_ID"],
-        "X-API-KEY": os.environ["TADDY_API_KEY"],
+        "X-USER-ID": require_env("TADDY_USER_ID"),
+        "X-API-KEY": require_env("TADDY_API_KEY"),
     }
 
 

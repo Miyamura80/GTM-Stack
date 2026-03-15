@@ -16,12 +16,13 @@ Usage:
 
 import argparse
 import json
-import os
 from pathlib import Path
 from typing import Any
 
 import requests
 from dotenv import load_dotenv
+
+from podcast.experiments import require_env
 
 load_dotenv()
 
@@ -30,7 +31,7 @@ DEEPGRAM_URL = "https://api.deepgram.com/v1/listen"
 
 def get_headers() -> dict[str, str]:
     return {
-        "Authorization": f"Token {os.environ['DEEPGRAM_API_KEY']}",
+        "Authorization": f"Token {require_env('DEEPGRAM_API_KEY')}",
     }
 
 

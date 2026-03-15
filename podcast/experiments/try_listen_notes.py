@@ -16,11 +16,12 @@ Usage:
 
 import argparse
 import json
-import os
 from typing import Any
 
 import requests
 from dotenv import load_dotenv
+
+from podcast.experiments import require_env
 
 load_dotenv()
 
@@ -31,7 +32,7 @@ TEST_URL = "https://listen-api-test.listennotes.com/api/v2"
 def get_headers(use_test: bool) -> dict[str, str]:
     if use_test:
         return {}
-    return {"X-ListenAPI-Key": os.environ["LISTEN_NOTES_API_KEY"]}
+    return {"X-ListenAPI-Key": require_env("LISTEN_NOTES_API_KEY")}
 
 
 def search(
