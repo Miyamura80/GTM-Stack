@@ -1,13 +1,13 @@
 import { useParams } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
-import { useBoard } from "../hooks/useBoard";
+import { getBoardBySlug } from "../hooks/useBoard";
 import { BoardHeader } from "./BoardHeader";
 import { NodeCard } from "./NodeCard";
 import { ConnectionLine } from "./ConnectionLine";
 
 export function BoardView() {
   const { slug } = useParams<{ slug: string }>();
-  const board = useBoard(slug);
+  const board = getBoardBySlug(slug);
   const containerRef = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState({ w: 0, h: 0 });
 

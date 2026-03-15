@@ -65,7 +65,7 @@ export function NodeCard({ node }: NodeCardProps) {
     >
       {/* Pushpin */}
       <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-30">
-        <PinIcon color={pinColor} size={24} />
+        <PinIcon color={pinColor} size={24} instanceId={node.id} />
       </div>
 
       {inner}

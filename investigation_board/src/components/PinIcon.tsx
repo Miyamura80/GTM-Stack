@@ -1,15 +1,15 @@
 interface PinIconProps {
   color?: string;
   size?: number;
+  instanceId?: string;
 }
 
 /**
  * Realistic 3D pushpin with metallic sheen, shadow, and needle.
  * Reusable across any investigation board.
  */
-export function PinIcon({ color = "#dc2626", size = 28 }: PinIconProps) {
-  // Unique gradient IDs per color to avoid SVG conflicts
-  const uid = color.replace("#", "p");
+export function PinIcon({ color = "#dc2626", size = 28, instanceId = "" }: PinIconProps) {
+  const uid = color.replace("#", "p") + instanceId;
 
   return (
     <svg

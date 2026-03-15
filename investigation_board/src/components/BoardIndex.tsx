@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { useBoards } from "../hooks/useBoards";
+import { getAllBoards } from "../hooks/useBoards";
 import { PushPin, Folders } from "@phosphor-icons/react";
 
 export function BoardIndex() {
-  const boards = useBoards();
+  const boards = getAllBoards();
   const navigate = useNavigate();
 
   return (

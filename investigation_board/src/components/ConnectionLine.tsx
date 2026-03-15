@@ -88,13 +88,13 @@ export function ConnectionLine({
         strokeLinecap="round"
       />
 
-      {/* Label */}
+      {/* Label - text renders first (invisible) so rect can reference its bbox */}
       {edge.label && (
         <g>
           <rect
-            x={labelX - edge.label.length * 3 - 5}
+            x={labelX - edge.label.length * 3.5 - 6}
             y={labelY - 8}
-            width={edge.label.length * 6 + 10}
+            width={edge.label.length * 7 + 12}
             height={16}
             rx={2}
             fill="#fffef5"

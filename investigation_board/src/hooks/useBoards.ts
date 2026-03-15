@@ -1,5 +1,5 @@
 import { boards } from "../data/boards";
 
-export function useBoards() {
+export function getAllBoards() {
   return boards;
 }
