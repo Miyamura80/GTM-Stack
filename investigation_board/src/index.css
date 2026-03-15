@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cork: #c4a265;
+  --color-cork-dark: #a68642;
+  --color-cream: #fdf6e3;
+  --color-cream-dark: #f5e6c8;
+  --color-pin-red: #dc2626;
+  --color-pin-blue: #2563eb;
+  --color-pin-green: #16a34a;
+  --color-pin-yellow: #ca8a04;
+  --color-accent-company: #3b82f6;
+  --color-accent-product: #22c55e;
+  --color-accent-person: #f59e0b;
+  --color-accent-open-source: #a855f7;
+  --font-title: "Special Elite", cursive;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+* {
+  box-sizing: border-box;
+}
