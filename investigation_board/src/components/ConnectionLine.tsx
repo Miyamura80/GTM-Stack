@@ -99,7 +99,7 @@ export function ConnectionLine({
       />
 
       {/* Label badge: uses a conservative 9px/char heuristic for Inter at fontSize 9.
-         This is a conscious simplification — exact text measurement (getBBox via ref)
+         This is a conscious simplification - exact text measurement (getBBox via ref)
          would add complexity for minimal visual gain on short labels. */}
       {edge.label && (
         <g>
