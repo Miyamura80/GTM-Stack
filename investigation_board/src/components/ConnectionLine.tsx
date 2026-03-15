@@ -21,9 +21,11 @@ export function ConnectionLine({
   containerHeight,
 }: ConnectionLineProps) {
   const x1 = (fromNode.x / 100) * containerWidth;
-  const y1 = (fromNode.y / 100) * containerHeight;
   const x2 = (toNode.x / 100) * containerWidth;
-  const y2 = (toNode.y / 100) * containerHeight;
+  // Offset y upward so strings attach near the pushpin, not the card center
+  const PIN_OFFSET_PX = 55;
+  const y1 = (fromNode.y / 100) * containerHeight - PIN_OFFSET_PX;
+  const y2 = (toNode.y / 100) * containerHeight - PIN_OFFSET_PX;
 
   const dx = x2 - x1;
   const dy = y2 - y1;
@@ -100,9 +102,9 @@ export function ConnectionLine({
       {edge.label && (
         <g>
           <rect
-            x={labelX - edge.label.length * 3.75 - 12}
+            x={labelX - edge.label.length * 4.5 - 10}
             y={labelY - 8}
-            width={edge.label.length * 7.5 + 24}
+            width={edge.label.length * 9 + 20}
             height={16}
             rx={2}
             fill="#fffef5"
