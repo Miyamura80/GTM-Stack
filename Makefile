@@ -252,6 +252,14 @@ ci: ruff vulture import_lint ty docs_lint lint_links check_deps ## Run all CI ch
 	@echo "$(GREEN)✅CI checks completed.$(RESET)"
 
 ########################################################
+# Notes
+########################################################
+
+### Notes
+notes_dir: check_uv ## Print (and create) the current quarter's notes directory
+	@$(PYTHON) notes/resolve_quarter.py --mkdir
+
+########################################################
 # Dependencies
 ########################################################
 

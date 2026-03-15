@@ -51,6 +51,7 @@ uv run pytest path/to/test.py  # Run specific test
 - **utils/llm/** - LLM inference with DSPY (`dspy_inference.py`) and LangFuse observability
 - **tests/** - pytest tests inheriting from `TestTemplate` in `test_template.py`
 - **init/** - Initialization scripts (banner generation)
+- **notes/** - User notes organized by year/quarter (see [Notes Storage](#notes-storage-notes))
 
 ## Code Style
 
@@ -138,6 +139,16 @@ Structure as: `init()` → `continue(id)` → `cleanup(id)`
 - **Merge Strategy**: Squash and merge.
 - **Never force push**: Do not use `git push --force` or `--force-with-lease`. If you hit a git issue, stop and ask the user for guidance.
 - **Pre-commit CI gate**: Always run `make ci` before committing any changes. Ensure it passes with zero errors. Do not commit if `make ci` fails - fix all issues first, then commit.
+
+## Notes Storage (`notes/`)
+
+User notes stored as markdown, organized by `notes/<year>/Q<n>-<year>/`. Only create notes when the **user explicitly asks**.
+
+**To store a note:**
+1. Run `make notes_dir` to get/create the current quarter directory (prints the path)
+2. Write a kebab-case `.md` file into that path: `<topic>-<YYYY-MM-DD>.md` (date optional for non-date-specific notes)
+
+Never hardcode the quarter - always use `make notes_dir`. One topic per file.
 
 ## Deprecated
 
