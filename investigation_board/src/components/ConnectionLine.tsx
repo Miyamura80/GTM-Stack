@@ -60,6 +60,14 @@ export function ConnectionLine({
 
   return (
     <g>
+      <defs>
+        <linearGradient id={`${uid}_str`} x1={x1} y1={y1} x2={x2} y2={y2} gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor={stringColor} stopOpacity="0.85" />
+          <stop offset="50%" stopColor={stringColor} stopOpacity="1" />
+          <stop offset="100%" stopColor={stringColor} stopOpacity="0.85" />
+        </linearGradient>
+      </defs>
+
       {/* String shadow for depth */}
       <path
         d={`M ${x1} ${y1} C ${cp1x} ${cp1y + 2}, ${cp2x} ${cp2y + 2}, ${x2} ${y2}`}
@@ -117,14 +125,6 @@ export function ConnectionLine({
         </g>
       )}
 
-      <defs>
-        {/* Gradient along the string for yarn-like depth */}
-        <linearGradient id={`${uid}_str`} x1={x1} y1={y1} x2={x2} y2={y2} gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor={stringColor} stopOpacity="0.85" />
-          <stop offset="50%" stopColor={stringColor} stopOpacity="1" />
-          <stop offset="100%" stopColor={stringColor} stopOpacity="0.85" />
-        </linearGradient>
-      </defs>
     </g>
   );
 }

@@ -72,7 +72,7 @@ export function NodeCard({ node }: NodeCardProps) {
 
       {/* Note tooltip on hover */}
       {node.note && (
-        <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity bg-gray-900/90 text-white text-[10px] px-2.5 py-1 rounded shadow-lg pointer-events-none z-40">
+        <div className="absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity bg-gray-900/90 text-white text-[10px] px-2.5 py-1 rounded shadow-lg pointer-events-none z-40">
           {node.note}
         </div>
       )}
