@@ -24,6 +24,14 @@ export function BoardView() {
     return () => observer.disconnect();
   }, []);
 
+  const nodesById = useMemo(
+    () =>
+      board
+        ? Object.fromEntries(board.nodes.map((n) => [n.id, n]))
+        : {},
+    [board],
+  );
+
   if (!board) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-amber-950 text-amber-200 font-title text-2xl">
@@ -31,11 +39,6 @@ export function BoardView() {
       </div>
     );
   }
-
-  const nodesById = useMemo(
-    () => Object.fromEntries(board.nodes.map((n) => [n.id, n])),
-    [board.nodes],
-  );
 
   return (
     <div className="min-h-screen flex flex-col bg-amber-900">
