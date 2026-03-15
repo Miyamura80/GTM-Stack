@@ -1,23 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { getAllBoards } from "../utils/board_utils";
 import { PushPin, Folders } from "@phosphor-icons/react";
+import { corkStyle } from "./CorkBackground";
 
 export function BoardIndex() {
   const boards = getAllBoards();
   const navigate = useNavigate();
 
   return (
-    <div
-      className="min-h-screen"
-      style={{
-        backgroundColor: "#c4a265",
-        backgroundImage: `
-          radial-gradient(ellipse at 20% 50%, rgba(139,110,60,0.3) 0%, transparent 50%),
-          radial-gradient(ellipse at 80% 20%, rgba(160,130,70,0.2) 0%, transparent 40%),
-          radial-gradient(ellipse at 50% 80%, rgba(120,95,50,0.25) 0%, transparent 45%)
-        `,
-      }}
-    >
+    <div className="min-h-screen" style={corkStyle}>
       {/* Header */}
       <div className="px-8 pt-10 pb-6">
         <div className="flex items-center gap-3 mb-1">

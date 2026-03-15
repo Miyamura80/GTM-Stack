@@ -30,7 +30,7 @@ export const boards: Board[] = [
       {
         id: "chatgpt",
         label: "ChatGPT",
-        image: "/media/Technology/agents/ChatGPT Logo.png",
+        image: "/media/Technology/agents/ChatGPT_Logo.png",
         type: "product",
         x: 15,
         y: 55,

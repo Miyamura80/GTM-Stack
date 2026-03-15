@@ -20,6 +20,18 @@ export function PinIcon({ color = "#dc2626", size = 28, instanceId = "" }: PinIc
       xmlns="http://www.w3.org/2000/svg"
       style={{ filter: "drop-shadow(1px 2px 2px rgba(0,0,0,0.35))" }}
     >
+      <defs>
+        <radialGradient id={`${uid}_dome`} cx="0.4" cy="0.35" r="0.6">
+          <stop offset="0%" stopColor="white" stopOpacity="0.25" />
+          <stop offset="60%" stopColor="white" stopOpacity="0" />
+          <stop offset="100%" stopColor="black" stopOpacity="0.2" />
+        </radialGradient>
+        <radialGradient id={`${uid}_gloss`} cx="0.5" cy="0.4" r="0.5">
+          <stop offset="0%" stopColor="white" stopOpacity="0.7" />
+          <stop offset="100%" stopColor="white" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+
       {/* Needle shadow */}
       <ellipse cx="14" cy="34" rx="3" ry="1.2" fill="rgba(0,0,0,0.15)" />
 
@@ -66,17 +78,6 @@ export function PinIcon({ color = "#dc2626", size = 28, instanceId = "" }: PinIc
         strokeWidth="1"
       />
 
-      <defs>
-        <radialGradient id={`${uid}_dome`} cx="0.4" cy="0.35" r="0.6">
-          <stop offset="0%" stopColor="white" stopOpacity="0.25" />
-          <stop offset="60%" stopColor="white" stopOpacity="0" />
-          <stop offset="100%" stopColor="black" stopOpacity="0.2" />
-        </radialGradient>
-        <radialGradient id={`${uid}_gloss`} cx="0.5" cy="0.4" r="0.5">
-          <stop offset="0%" stopColor="white" stopOpacity="0.7" />
-          <stop offset="100%" stopColor="white" stopOpacity="0" />
-        </radialGradient>
-      </defs>
     </svg>
   );
 }
