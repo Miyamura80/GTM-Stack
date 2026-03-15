@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import { useRef, useState, useEffect } from "react";
-import { getBoardBySlug } from "../hooks/useBoard";
+import { useRef, useState, useLayoutEffect } from "react";
+import { getBoardBySlug } from "../hooks/board_utils";
 import { BoardHeader } from "./BoardHeader";
 import { NodeCard } from "./NodeCard";
 import { ConnectionLine } from "./ConnectionLine";
@@ -11,9 +11,10 @@ export function BoardView() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState({ w: 0, h: 0 });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = containerRef.current;
     if (!el) return;
+    setSize({ w: el.offsetWidth, h: el.offsetHeight });
     const observer = new ResizeObserver((entries) => {
       const { width, height } = entries[0].contentRect;
       setSize({ w: width, h: height });

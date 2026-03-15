@@ -92,9 +92,9 @@ export function ConnectionLine({
       {edge.label && (
         <g>
           <rect
-            x={labelX - edge.label.length * 3.5 - 6}
+            x={labelX - edge.label.length * 4 - 8}
             y={labelY - 8}
-            width={edge.label.length * 7 + 12}
+            width={edge.label.length * 8 + 16}
             height={16}
             rx={2}
             fill="#fffef5"

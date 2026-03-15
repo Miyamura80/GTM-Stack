@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { getAllBoards } from "../hooks/useBoards";
+import { getAllBoards } from "../hooks/boards_utils";
 import { PushPin, Folders } from "@phosphor-icons/react";
 
 export function BoardIndex() {
