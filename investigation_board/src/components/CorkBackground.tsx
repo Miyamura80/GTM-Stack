@@ -29,5 +29,3 @@ export function CorkBackground() {
   );
 }
 
-/** Cork style for use as a root element's inline style (BoardIndex). */
-export { corkStyle };

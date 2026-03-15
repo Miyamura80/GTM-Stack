@@ -1,14 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import { getAllBoards } from "../utils/board_utils";
 import { PushPin, Folders } from "@phosphor-icons/react";
-import { corkStyle } from "./CorkBackground";
+import { CorkBackground } from "./CorkBackground";
 
 export function BoardIndex() {
   const boards = getAllBoards();
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen" style={corkStyle}>
+    <div className="min-h-screen relative">
+      <CorkBackground />
+      <div className="relative z-10">
       {/* Header */}
       <div className="px-8 pt-10 pb-6">
         <div className="flex items-center gap-3 mb-1">
@@ -59,6 +61,7 @@ export function BoardIndex() {
             <div className="h-1 bg-gradient-to-r from-amber-600 to-amber-400 rounded-b-sm" />
           </button>
         ))}
+      </div>
       </div>
     </div>
   );

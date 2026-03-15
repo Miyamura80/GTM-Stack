@@ -41,8 +41,10 @@ export function ConnectionLine({
 
   // Seeded variation so each string has slightly different character
   const seed =
-    (edge.id.charCodeAt(0) * 7 + edge.id.charCodeAt(edge.id.length - 1) * 13) %
-    100;
+    edge.id.length > 0
+      ? (edge.id.charCodeAt(0) * 7 + edge.id.charCodeAt(edge.id.length - 1) * 13) %
+        100
+      : 0;
   const wobble = ((seed / 100) - 0.5) * dist * 0.08;
 
   // Two control points for cubic bezier - creates a more natural catenary-like curve
