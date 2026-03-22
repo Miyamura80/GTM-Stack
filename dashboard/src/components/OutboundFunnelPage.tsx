@@ -46,12 +46,13 @@ interface ActivityItem {
 /*  Static data                                                        */
 /* ------------------------------------------------------------------ */
 
+// Cumulative counts derived from data/pipeline.csv
 const FUNNEL_STAGES: FunnelStageData[] = [
     { key: "identified", label: "Identified", count: 25, value: 4424000, color: "var(--accent-emerald)" },
-    { key: "contacted", label: "Contacted", count: 20, value: 3640000, color: "var(--accent-blue)" },
-    { key: "replied", label: "Replied", count: 9, value: 1640000, color: "var(--accent-violet)" },
-    { key: "meeting_booked", label: "Meeting", count: 6, value: 1168000, color: "var(--accent-gold)" },
-    { key: "opportunity", label: "Opportunity", count: 5, value: 1064000, color: "var(--accent-teal)" },
+    { key: "contacted", label: "Contacted", count: 20, value: 3488000, color: "var(--accent-blue)" },
+    { key: "replied", label: "Replied", count: 16, value: 2776000, color: "var(--accent-violet)" },
+    { key: "meeting_booked", label: "Meeting", count: 13, value: 2264000, color: "var(--accent-gold)" },
+    { key: "opportunity", label: "Opportunity", count: 10, value: 1728000, color: "var(--accent-teal)" },
     { key: "closed_won", label: "Closed-Won", count: 3, value: 656000, color: "var(--accent-coral)" },
 ];
 
@@ -64,14 +65,14 @@ const STAGE_VELOCITY: VelocityData[] = [
 ];
 
 const RECENT_ACTIVITY: ActivityItem[] = [
-    { id: "a1", company: "HSBC", fromStage: "Meeting", toStage: "Opportunity", date: "Mar 1", contactName: "Claire Dubois" },
-    { id: "a2", company: "Klarna", fromStage: "Replied", toStage: "Meeting", date: "Mar 18", contactName: "Erik Lindgren" },
-    { id: "a3", company: "Zurich Insurance", fromStage: "Contacted", toStage: "Replied", date: "Mar 8", contactName: "Hans Mueller" },
-    { id: "a4", company: "Cerner", fromStage: "Contacted", toStage: "Replied", date: "Mar 5", contactName: "Robert Walsh" },
-    { id: "a5", company: "Stripe", fromStage: "Opportunity", toStage: "Negotiation", date: "Feb 10", contactName: "Maria Santos" },
-    { id: "a6", company: "Cigna", fromStage: "Replied", toStage: "Meeting", date: "Mar 20", contactName: "Patricia Nguyen" },
+    { id: "a1", company: "Standard Chartered", fromStage: "Replied", toStage: "Meeting", date: "Mar 22", contactName: "Raj Mehta" },
+    { id: "a2", company: "Cigna", fromStage: "Replied", toStage: "Meeting", date: "Mar 20", contactName: "Patricia Nguyen" },
+    { id: "a3", company: "Klarna", fromStage: "Replied", toStage: "Meeting", date: "Mar 18", contactName: "Erik Lindgren" },
+    { id: "a4", company: "Zurich Insurance", fromStage: "Contacted", toStage: "Replied", date: "Mar 8", contactName: "Hans Mueller" },
+    { id: "a5", company: "Cerner", fromStage: "Contacted", toStage: "Replied", date: "Mar 5", contactName: "Robert Walsh" },
+    { id: "a6", company: "HSBC", fromStage: "Meeting", toStage: "Opportunity", date: "Mar 1", contactName: "Claire Dubois" },
     { id: "a7", company: "Plaid", fromStage: "Contacted", toStage: "Replied", date: "Mar 1", contactName: "Jenny Kim" },
-    { id: "a8", company: "Standard Chartered", fromStage: "Replied", toStage: "Meeting", date: "Mar 22", contactName: "Raj Mehta" },
+    { id: "a8", company: "Stripe", fromStage: "Opportunity", toStage: "Negotiation", date: "Feb 10", contactName: "Maria Santos" },
 ];
 
 const FUNNEL_METRICS = [
@@ -316,9 +317,9 @@ function StageVelocity() {
                                 <div
                                     className="velocity-bar-fill"
                                     style={{
-                                        width: `${(v.avgDays / maxDays) * 100}%`,
+                                        "--bar-width": `${(v.avgDays / maxDays) * 100}%`,
                                         background: v.color,
-                                    }}
+                                    } as React.CSSProperties}
                                 />
                             </div>
                             <div className="velocity-days">{v.avgDays}d</div>
