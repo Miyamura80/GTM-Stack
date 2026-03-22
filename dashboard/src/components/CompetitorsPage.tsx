@@ -1,4 +1,5 @@
 import { useState } from "react";
+import type { ReactNode } from "react";
 import {
     Binoculars, Eye, Target, Lightbulb, CaretRight,
     Code, CurrencyDollar, Article, UserPlus, Handshake,
@@ -121,8 +122,18 @@ const CATEGORY_GROUPS: { key: CompetitorCategory; label: string }[] = [
 /* ------------------------------------------------------------------ */
 
 function getCompetitor(id: string): Competitor {
-    return COMPETITORS.find(c => c.id === id)!;
+    const found = COMPETITORS.find(c => c.id === id);
+    if (!found) throw new Error(`Unknown competitor id: "${id}"`);
+    return found;
 }
+
+const TYPE_ICONS: Record<SignalType, ReactNode> = {
+    product: <Code size={10} weight="bold" />,
+    pricing: <CurrencyDollar size={10} weight="bold" />,
+    content: <Article size={10} weight="bold" />,
+    hiring: <UserPlus size={10} weight="bold" />,
+    partnerships: <Handshake size={10} weight="bold" />,
+};
 
 function actionTagClass(tag: ActionTag): string {
     switch (tag) {
@@ -208,13 +219,6 @@ function SignalFilters({ active, onChange }: { active: SignalFilter; onChange: (
 
 function SignalCard({ signal }: { signal: IntelSignal }) {
     const comp = getCompetitor(signal.competitorId);
-    const typeIcons: Record<SignalType, React.ReactNode> = {
-        product: <Code size={10} weight="bold" />,
-        pricing: <CurrencyDollar size={10} weight="bold" />,
-        content: <Article size={10} weight="bold" />,
-        hiring: <UserPlus size={10} weight="bold" />,
-        partnerships: <Handshake size={10} weight="bold" />,
-    };
 
     return (
         <div className="signal-card">
@@ -232,7 +236,7 @@ function SignalCard({ signal }: { signal: IntelSignal }) {
             </div>
             <div className="signal-meta">
                 <span className={`signal-type-badge signal-type-${signal.type}`}>
-                    {typeIcons[signal.type]} {SIGNAL_TYPE_LABELS[signal.type]}
+                    {TYPE_ICONS[signal.type]} {SIGNAL_TYPE_LABELS[signal.type]}
                 </span>
             </div>
             <div className="signal-description">{signal.description}</div>
