@@ -338,11 +338,15 @@ export function CompetitorsPage() {
                 </div>
                 <div className="panel-body">
                     <SignalFilters active={signalFilter} onChange={setSignalFilter} />
-                    <div className="signals-grid">
-                        {filteredSignals.map(signal => (
-                            <SignalCard key={signal.id} signal={signal} />
-                        ))}
-                    </div>
+                    {filteredSignals.length === 0 ? (
+                        <div className="signals-empty">No signals match this filter.</div>
+                    ) : (
+                        <div className="signals-grid">
+                            {filteredSignals.map(signal => (
+                                <SignalCard key={signal.id} signal={signal} />
+                            ))}
+                        </div>
+                    )}
                 </div>
             </div>
 
