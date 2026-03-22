@@ -60,9 +60,10 @@ function ExpandedChart({ data, color, labels }: { data: number[]; color: string;
                 <circle key={i} cx={p.x} cy={p.y} r="2.5" fill="var(--bg-surface)" stroke={color} strokeWidth="1.5" />
             ))}
 
-            {/* X-axis labels */}
+            {/* X-axis labels - aligned to corresponding data point positions */}
             {labels.map((label, i) => {
-                const x = (i / (labels.length - 1)) * w;
+                const dataIndex = Math.round((i / (labels.length - 1)) * (data.length - 1));
+                const x = (dataIndex / (data.length - 1)) * w;
                 return (
                     <text
                         key={i}

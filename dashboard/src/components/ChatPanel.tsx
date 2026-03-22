@@ -35,10 +35,17 @@ export function ChatPanel() {
     const [input, setInput] = useState("");
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const responseIndex = useRef(0);
+    const pendingTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages]);
+
+    useEffect(() => {
+        return () => {
+            if (pendingTimerRef.current) clearTimeout(pendingTimerRef.current);
+        };
+    }, []);
 
     function handleSend(e: FormEvent) {
         e.preventDefault();
@@ -53,7 +60,8 @@ export function ChatPanel() {
         setMessages((prev) => [...prev, userMsg]);
         setInput("");
 
-        setTimeout(() => {
+        if (pendingTimerRef.current) clearTimeout(pendingTimerRef.current);
+        pendingTimerRef.current = setTimeout(() => {
             const reply = AGENT_RESPONSES[responseIndex.current % AGENT_RESPONSES.length];
             responseIndex.current++;
             setMessages((prev) => [
