@@ -6,8 +6,9 @@ import { EmailPanel } from "./components/EmailPanel";
 import { AdsPanel } from "./components/AdsPanel";
 import { ChatPanel } from "./components/ChatPanel";
 import { DistributionChannelsPage } from "./components/DistributionChannelsPage";
+import { CompetitorsPage } from "./components/CompetitorsPage";
 
-type Page = "dashboard" | "channels";
+type Page = "dashboard" | "channels" | "competitors";
 
 function App() {
     const [page, setPage] = useState<Page>("dashboard");
@@ -45,6 +46,12 @@ function App() {
                         >
                             Distribution Channels
                         </button>
+                        <button
+                            className={`nav-tab ${page === "competitors" ? "active" : ""}`}
+                            onClick={() => setPage("competitors")}
+                        >
+                            Competitors
+                        </button>
                     </nav>
                     <div className="dashboard-date">
                         <span className="live-dot" />
@@ -59,8 +66,10 @@ function App() {
                         <EmailPanel />
                         <AdsPanel />
                     </div>
-                ) : (
+                ) : page === "channels" ? (
                     <DistributionChannelsPage />
+                ) : (
+                    <CompetitorsPage />
                 )}
             </div>
             <ChatPanel />
