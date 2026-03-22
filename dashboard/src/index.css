@@ -1085,7 +1085,11 @@ body::before {
   height: 100%;
   border-radius: 3px;
   background: linear-gradient(90deg, var(--accent-gold), var(--accent-emerald));
-  transition: width 1s ease-out;
+  animation: roiFillIn 1s ease-out forwards;
+}
+
+@keyframes roiFillIn {
+  from { width: 0%; }
 }
 
 .channel-description {

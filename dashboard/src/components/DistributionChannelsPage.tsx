@@ -299,21 +299,29 @@ function QuadrantChart() {
                         HIGH EFFORT / LOW ROI
                     </text>
 
+                    {/* Gradient definitions */}
+                    <defs>
+                        {CHANNELS.map((ch_item) => {
+                            const color = CATEGORY_COLORS[ch_item.category];
+                            const gradId = `dot-${id}-${ch_item.id}`;
+                            return (
+                                <radialGradient key={gradId} id={gradId}>
+                                    <stop offset="0%" stopColor={color} stopOpacity="0.9" />
+                                    <stop offset="100%" stopColor={color} stopOpacity="0.3" />
+                                </radialGradient>
+                            );
+                        })}
+                    </defs>
+
                     {/* Data points */}
                     {CHANNELS.map((ch_item) => {
                         const cx = pad.left + ((ch_item.effort - 1) / 4) * cw;
                         const cy = pad.top + ch - (ch_item.pipelineROI / 100) * ch;
-                        const color = CATEGORY_COLORS[ch_item.category];
                         const gradId = `dot-${id}-${ch_item.id}`;
+                        const color = CATEGORY_COLORS[ch_item.category];
 
                         return (
                             <g key={ch_item.id}>
-                                <defs>
-                                    <radialGradient id={gradId}>
-                                        <stop offset="0%" stopColor={color} stopOpacity="0.9" />
-                                        <stop offset="100%" stopColor={color} stopOpacity="0.3" />
-                                    </radialGradient>
-                                </defs>
                                 <circle cx={cx} cy={cy} r={8} fill={`url(#${gradId})`} />
                                 <circle cx={cx} cy={cy} r={3.5} fill={color} />
                                 <text x={cx} y={cy - 12} textAnchor="middle"
