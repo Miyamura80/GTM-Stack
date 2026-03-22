@@ -15,7 +15,7 @@ function ExpandedChart({ data, color, labels }: { data: number[]; color: string;
     const chartH = h - padTop - padBottom;
 
     const points = data.map((v, i) => ({
-        x: (i / (data.length - 1)) * w,
+        x: data.length > 1 ? (i / (data.length - 1)) * w : w / 2,
         y: padTop + chartH - ((v - min) / range) * chartH,
         value: v,
     }));
@@ -63,8 +63,8 @@ function ExpandedChart({ data, color, labels }: { data: number[]; color: string;
 
             {/* X-axis labels - aligned to corresponding data point positions */}
             {labels.map((label, i) => {
-                const dataIndex = Math.round((i / (labels.length - 1)) * (data.length - 1));
-                const x = (dataIndex / (data.length - 1)) * w;
+                const dataIndex = labels.length > 1 ? Math.round((i / (labels.length - 1)) * (data.length - 1)) : 0;
+                const x = data.length > 1 ? (dataIndex / (data.length - 1)) * w : w / 2;
                 return (
                     <text
                         key={i}
@@ -91,7 +91,7 @@ function MiniSparkline({ data, color }: { data: number[]; color: string }) {
     const h = 24;
     const points = data
         .map((v, i) => {
-            const x = (i / (data.length - 1)) * w;
+            const x = data.length > 1 ? (i / (data.length - 1)) * w : w / 2;
             const y = h - ((v - min) / range) * h;
             return `${x},${y}`;
         })
@@ -106,6 +106,7 @@ function MiniSparkline({ data, color }: { data: number[]; color: string }) {
 
 const METRICS = [
     {
+        id: "m1",
         label: "Site Visitors",
         icon: UsersThree,
         color: "var(--accent-emerald)",
@@ -134,6 +135,7 @@ const METRICS = [
         },
     },
     {
+        id: "m2",
         label: "Revenue",
         icon: CurrencyDollar,
         color: "var(--accent-gold)",
@@ -162,6 +164,7 @@ const METRICS = [
         },
     },
     {
+        id: "m3",
         label: "Conversion",
         icon: Crosshair,
         color: "var(--accent-coral)",
@@ -190,6 +193,7 @@ const METRICS = [
         },
     },
     {
+        id: "m4",
         label: "Pipeline",
         icon: ShoppingCart,
         color: "var(--accent-blue)",
@@ -248,13 +252,13 @@ export function MetricsPanel() {
                 {METRICS.map((m) => {
                     const Icon = m.icon;
                     const pd = m.periods[activePeriod];
-                    const isHovered = hoveredCard === m.label;
+                    const isHovered = hoveredCard === m.id;
 
                     return (
                         <div
                             className="metric-card"
-                            key={m.label}
-                            onMouseEnter={() => setHoveredCard(m.label)}
+                            key={m.id}
+                            onMouseEnter={() => setHoveredCard(m.id)}
                             onMouseLeave={() => setHoveredCard(null)}
                         >
                             <div className="metric-label">
