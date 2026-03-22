@@ -80,7 +80,7 @@ const CHANNELS: Channel[] = [
         status: "active",
         urgency: 4,
         importance: 5,
-        description: "RSA, Black Hat, BSides — booth presence, speaking slots, and after-parties.",
+        description: "RSA, Black Hat, BSides - booth presence, speaking slots, and after-parties.",
     },
     {
         id: "podcasts",
