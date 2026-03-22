@@ -58,7 +58,7 @@ export function SocialPanel() {
                     <Hash size={14} weight="bold" />
                     Social feed
                 </div>
-                <span className="panel-badge badge-blue">12 mentions</span>
+                <span className="panel-badge badge-blue">{FEED.length} mentions</span>
             </div>
             <div className="panel-body">
                 <div className="social-feed">
