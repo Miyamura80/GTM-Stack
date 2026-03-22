@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { ReactNode } from "react";
 import {
     Binoculars, Eye, Target, Lightbulb, CaretRight,
-    Code, CurrencyDollar, Article, UserPlus, Handshake,
+    Code, CurrencyDollar, Article, UserPlus, Handshake, ChartLineUp,
 } from "@phosphor-icons/react";
 
 /* ------------------------------------------------------------------ */
@@ -10,7 +10,7 @@ import {
 /* ------------------------------------------------------------------ */
 
 type CompetitorCategory = "direct" | "adjacent" | "emerging";
-type SignalType = "product" | "pricing" | "content" | "hiring" | "partnerships";
+type SignalType = "product" | "pricing" | "content" | "hiring" | "partnerships" | "funding";
 type ActionTag = "opportunity" | "watch" | "respond";
 type SignalFilter = "all" | SignalType;
 
@@ -68,7 +68,7 @@ const COMPETITORS: Competitor[] = [
 
 const SIGNALS: IntelSignal[] = [
     { id: "s1", competitorId: "nightfall", type: "product", date: "Mar 19, 2026", description: "Launched browser extension for real-time DLP scanning across all SaaS apps with on-device ML classification.", actionTag: "opportunity", insight: "We could differentiate with deeper API integrations vs. browser-layer approach." },
-    { id: "s2", competitorId: "cyberhaven", type: "pricing", date: "Mar 17, 2026", description: "Raised $88M Series C at $450M valuation. Expanding enterprise sales team aggressively.", actionTag: "watch", insight: "Expect increased presence at RSA and more aggressive enterprise outbound." },
+    { id: "s2", competitorId: "cyberhaven", type: "funding", date: "Mar 17, 2026", description: "Raised $88M Series C at $450M valuation. Expanding enterprise sales team aggressively.", actionTag: "watch", insight: "Expect increased presence at RSA and more aggressive enterprise outbound." },
     { id: "s3", competitorId: "polymer", type: "product", date: "Mar 14, 2026", description: "Added Slack integration for auto-redaction of sensitive data in real time with admin override workflows.", actionTag: "respond", insight: "Our Slack coverage is partial - prioritize parity here." },
     { id: "s4", competitorId: "varonis", type: "product", date: "Mar 12, 2026", description: "Released AI-powered data classification engine that claims 95% accuracy on unstructured data.", actionTag: "watch" },
     { id: "s5", competitorId: "metomic", type: "content", date: "Mar 10, 2026", description: "Published comprehensive CISO guide to SaaS data security, gaining significant LinkedIn traction.", actionTag: "opportunity", insight: "Content gap - we should produce competing thought leadership for our ICP." },
@@ -100,6 +100,7 @@ const SIGNAL_TYPE_LABELS: Record<SignalType, string> = {
     content: "Content",
     hiring: "Hiring",
     partnerships: "Partnerships",
+    funding: "Funding",
 };
 
 const FILTER_OPTIONS: { key: SignalFilter; label: string }[] = [
@@ -109,6 +110,7 @@ const FILTER_OPTIONS: { key: SignalFilter; label: string }[] = [
     { key: "content", label: "Content" },
     { key: "hiring", label: "Hiring" },
     { key: "partnerships", label: "Partners" },
+    { key: "funding", label: "Funding" },
 ];
 
 const CATEGORY_GROUPS: { key: CompetitorCategory; label: string }[] = [
@@ -133,6 +135,7 @@ const TYPE_ICONS: Record<SignalType, ReactNode> = {
     content: <Article size={10} weight="bold" />,
     hiring: <UserPlus size={10} weight="bold" />,
     partnerships: <Handshake size={10} weight="bold" />,
+    funding: <ChartLineUp size={10} weight="bold" />,
 };
 
 function actionTagClass(tag: ActionTag): string {

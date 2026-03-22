@@ -1560,6 +1560,11 @@ body::before {
   color: var(--accent-coral);
 }
 
+.signal-type-funding {
+  background: var(--accent-gold-dim);
+  color: var(--accent-gold);
+}
+
 .signal-description {
   font-size: 12px;
   color: var(--text-secondary);
