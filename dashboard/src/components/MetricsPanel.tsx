@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useId } from "react";
 import { TrendUp, TrendDown, UsersThree, CurrencyDollar, Crosshair, ShoppingCart } from "@phosphor-icons/react";
 
 type Period = "7d" | "30d" | "90d";
 
 function ExpandedChart({ data, color, labels }: { data: number[]; color: string; labels: string[] }) {
+    const id = useId();
     const max = Math.max(...data);
     const min = Math.min(...data);
     const range = max - min || 1;
@@ -21,7 +22,7 @@ function ExpandedChart({ data, color, labels }: { data: number[]; color: string;
 
     const polyline = points.map((p) => `${p.x},${p.y}`).join(" ");
 
-    const gradientId = `grad-${color.replace(/[^a-z]/gi, "")}`;
+    const gradientId = `grad-${id}-${color.replace(/[^a-z]/gi, "")}`;
 
     const areaPath = `M${points[0].x},${points[0].y} ${points.map((p) => `L${p.x},${p.y}`).join(" ")} L${points[points.length - 1].x},${padTop + chartH} L${points[0].x},${padTop + chartH} Z`;
 

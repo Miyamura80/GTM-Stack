@@ -2,30 +2,35 @@ import { EnvelopeSimple } from "@phosphor-icons/react";
 
 const EMAILS = [
     {
+        id: "e1",
         from: "Alex Rivera",
         subject: "Re: Partnership proposal - ready for your sign-off",
         time: "10:32 AM",
         unread: true,
     },
     {
+        id: "e2",
         from: "Investor Relations",
         subject: "Monthly board update draft attached",
         time: "9:15 AM",
         unread: true,
     },
     {
+        id: "e3",
         from: "Clara Yang",
         subject: "Customer success metrics for Q1 review",
         time: "8:40 AM",
         unread: true,
     },
     {
+        id: "e4",
         from: "Stripe Notifications",
         subject: "Your March payout has been initiated",
         time: "Yesterday",
         unread: false,
     },
     {
+        id: "e5",
         from: "David Park",
         subject: "Competitor analysis - they just launched",
         time: "Yesterday",
@@ -46,7 +51,7 @@ export function EmailPanel() {
             <div className="panel-body">
                 <div className="email-list">
                     {EMAILS.map((e) => (
-                        <div className="email-item" key={e.subject}>
+                        <div className="email-item" key={e.id}>
                             <div className={`email-unread-dot ${e.unread ? "" : "read"}`} />
                             <div className="email-content">
                                 <div className="email-from">{e.from}</div>

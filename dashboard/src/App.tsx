@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { MetricsPanel } from "./components/MetricsPanel";
 import { TasksPanel } from "./components/TasksPanel";
 import { SocialPanel } from "./components/SocialPanel";
@@ -6,7 +7,13 @@ import { AdsPanel } from "./components/AdsPanel";
 import { ChatPanel } from "./components/ChatPanel";
 
 function App() {
-    const now = new Date();
+    const [now, setNow] = useState(() => new Date());
+
+    useEffect(() => {
+        const id = setInterval(() => setNow(new Date()), 60_000);
+        return () => clearInterval(id);
+    }, []);
+
     const dateStr = now.toLocaleDateString("en-US", {
         weekday: "long",
         month: "short",
