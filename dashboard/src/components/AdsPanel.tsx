@@ -35,7 +35,7 @@ export function AdsPanel() {
                     <Megaphone size={14} weight="bold" />
                     Ad campaigns
                 </div>
-                <span className="panel-badge badge-green">2 active</span>
+                <span className="panel-badge badge-green">{CAMPAIGNS.filter(c => c.status === "active").length} active</span>
             </div>
             <div className="panel-body">
                 <div className="campaign-list">

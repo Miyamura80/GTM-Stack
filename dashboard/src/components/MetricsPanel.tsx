@@ -251,7 +251,7 @@ export function MetricsPanel() {
 
                     return (
                         <div
-                            className={`metric-card ${isHovered ? "metric-card-expanded" : ""}`}
+                            className="metric-card"
                             key={m.label}
                             onMouseEnter={() => setHoveredCard(m.label)}
                             onMouseLeave={() => setHoveredCard(null)}

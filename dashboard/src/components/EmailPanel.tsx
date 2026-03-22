@@ -41,7 +41,7 @@ export function EmailPanel() {
                     <EnvelopeSimple size={14} weight="bold" />
                     Inbox
                 </div>
-                <span className="panel-badge badge-gold">3 unread</span>
+                <span className="panel-badge badge-gold">{EMAILS.filter(e => e.unread).length} unread</span>
             </div>
             <div className="panel-body">
                 <div className="email-list">

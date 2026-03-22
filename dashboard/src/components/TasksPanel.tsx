@@ -32,7 +32,7 @@ export function TasksPanel() {
                     <CheckSquare size={14} weight="bold" />
                     Top priorities
                 </div>
-                <span className="panel-badge badge-coral">3 urgent</span>
+                <span className="panel-badge badge-coral">{TASKS.filter(t => t.priority === "critical" || t.priority === "high").length} urgent</span>
             </div>
             <div className="panel-body">
                 {TASKS.map((t) => (
