@@ -1390,6 +1390,13 @@ body::before {
   flex-shrink: 0;
 }
 
+.competitor-avatar--sm {
+  width: 22px;
+  height: 22px;
+  font-size: 10px;
+  border-radius: 4px;
+}
+
 .competitor-chip-info {
   flex: 1;
   min-width: 0;

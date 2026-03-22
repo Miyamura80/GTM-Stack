@@ -143,6 +143,7 @@ function actionTagClass(tag: ActionTag): string {
         case "opportunity": return "badge-green";
         case "watch": return "badge-gold";
         case "respond": return "badge-coral";
+        default: { const _exhaustive: never = tag; throw new Error(`Unknown action tag: ${_exhaustive}`); }
     }
 }
 
@@ -228,8 +229,8 @@ function SignalCard({ signal }: { signal: IntelSignal }) {
             <div className="signal-card-header">
                 <div className="signal-competitor">
                     <div
-                        className="competitor-avatar"
-                        style={{ background: comp.color, color: "#08080a", width: 22, height: 22, fontSize: 10, borderRadius: 4 }}
+                        className="competitor-avatar competitor-avatar--sm"
+                        style={{ background: comp.color, color: "#08080a" }}
                     >
                         {comp.name[0]}
                     </div>
