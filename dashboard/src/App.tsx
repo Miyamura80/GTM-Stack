@@ -5,8 +5,12 @@ import { SocialPanel } from "./components/SocialPanel";
 import { EmailPanel } from "./components/EmailPanel";
 import { AdsPanel } from "./components/AdsPanel";
 import { ChatPanel } from "./components/ChatPanel";
+import { DistributionChannelsPage } from "./components/DistributionChannelsPage";
+
+type Page = "dashboard" | "channels";
 
 function App() {
+    const [page, setPage] = useState<Page>("dashboard");
     const [now, setNow] = useState(() => new Date());
 
     useEffect(() => {
@@ -28,18 +32,36 @@ function App() {
                     <h1 className="dashboard-title">
                         <span>GTM</span> Command Center
                     </h1>
+                    <nav className="dashboard-nav">
+                        <button
+                            className={`nav-tab ${page === "dashboard" ? "active" : ""}`}
+                            onClick={() => setPage("dashboard")}
+                        >
+                            Dashboard
+                        </button>
+                        <button
+                            className={`nav-tab ${page === "channels" ? "active" : ""}`}
+                            onClick={() => setPage("channels")}
+                        >
+                            Distribution Channels
+                        </button>
+                    </nav>
                     <div className="dashboard-date">
                         <span className="live-dot" />
                         {dateStr}
                     </div>
                 </header>
-                <div className="content-grid">
-                    <MetricsPanel />
-                    <TasksPanel />
-                    <SocialPanel />
-                    <EmailPanel />
-                    <AdsPanel />
-                </div>
+                {page === "dashboard" ? (
+                    <div className="content-grid">
+                        <MetricsPanel />
+                        <TasksPanel />
+                        <SocialPanel />
+                        <EmailPanel />
+                        <AdsPanel />
+                    </div>
+                ) : (
+                    <DistributionChannelsPage />
+                )}
             </div>
             <ChatPanel />
         </div>
