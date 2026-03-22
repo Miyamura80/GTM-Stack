@@ -7,8 +7,9 @@ import { AdsPanel } from "./components/AdsPanel";
 import { ChatPanel } from "./components/ChatPanel";
 import { DistributionChannelsPage } from "./components/DistributionChannelsPage";
 import { CompetitorsPage } from "./components/CompetitorsPage";
+import { OutboundFunnelPage } from "./components/OutboundFunnelPage";
 
-type Page = "dashboard" | "channels" | "competitors";
+type Page = "dashboard" | "channels" | "competitors" | "outbound";
 
 function App() {
     const [page, setPage] = useState<Page>("dashboard");
@@ -47,6 +48,12 @@ function App() {
                             Distribution Channels
                         </button>
                         <button
+                            className={`nav-tab ${page === "outbound" ? "active" : ""}`}
+                            onClick={() => setPage("outbound")}
+                        >
+                            Outbound Funnel
+                        </button>
+                        <button
                             className={`nav-tab ${page === "competitors" ? "active" : ""}`}
                             onClick={() => setPage("competitors")}
                         >
@@ -68,6 +75,8 @@ function App() {
                     </div>
                 ) : page === "channels" ? (
                     <DistributionChannelsPage />
+                ) : page === "outbound" ? (
+                    <OutboundFunnelPage />
                 ) : (
                     <CompetitorsPage />
                 )}
