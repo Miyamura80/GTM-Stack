@@ -137,6 +137,11 @@ const METRICS = [
     {
         id: "m2",
         label: "Meetings This Week",
+        periodLabels: {
+            "7d": "Meetings This Week",
+            "30d": "Meetings This Month",
+            "90d": "Meetings This Quarter",
+        } as Record<Period, string>,
         icon: CalendarCheck,
         color: "var(--accent-gold)",
         periods: {
@@ -263,7 +268,7 @@ export function MetricsPanel() {
                         >
                             <div className="metric-label">
                                 <Icon size={12} weight="bold" style={{ marginRight: 4, verticalAlign: -1 }} />
-                                {m.label}
+                                {"periodLabels" in m ? m.periodLabels[activePeriod] : m.label}
                             </div>
                             <div className="metric-value">{pd.value}</div>
                             <div className={`metric-change ${pd.direction}`}>
