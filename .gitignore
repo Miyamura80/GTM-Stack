@@ -1,6 +1,9 @@
 # macOS
 .DS_Store
 
+# Node
+node_modules/
+
 old_scripts/
 
 # Agent session files
