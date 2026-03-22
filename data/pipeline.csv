@@ -1,0 +1,26 @@
+company,contact_name,contact_title,industry,deal_stage,deal_value,seats,source,outreach_date,reply_date,meeting_date,opportunity_date,closed_date,notes
+Revolut,James Chen,CISO,fintech,closed_won,240000,600,outbound,2026-01-06,2026-01-09,2026-01-15,2026-01-28,2026-03-04,Champion driven; fast security review
+Monzo,Sarah Patel,VP Security,fintech,closed_won,96000,200,outbound,2026-01-08,2026-01-14,2026-01-20,2026-02-03,2026-03-10,Multi-threaded with eng lead
+JPMorgan Chase,David Liu,Head of InfoSec,banking,closed_won,320000,800,inbound,2026-01-03,2026-01-05,2026-01-10,2026-01-22,2026-02-28,Inbound from conference; long procurement
+Stripe,Maria Santos,Director of Security,fintech,negotiation,180000,450,outbound,2026-01-12,2026-01-18,2026-01-24,2026-02-10,,Legal review in progress
+Barclays,Tom Richards,CISO,banking,negotiation,280000,700,outbound,2026-01-15,2026-01-22,2026-01-30,2026-02-14,,Waiting on board approval
+Wise,Anika Johansson,Head of Security,fintech,opportunity,128000,320,outbound,2026-01-20,2026-01-26,2026-02-03,2026-02-18,,Security questionnaire submitted
+Oscar Health,Michael Torres,VP Engineering & Security,healthcare,opportunity,160000,400,outbound,2026-01-22,2026-01-29,2026-02-05,2026-02-20,,POC running with security team
+HSBC,Claire Dubois,Deputy CISO,banking,opportunity,256000,640,outbound,2026-02-01,2026-02-06,2026-02-12,2026-03-01,,Multi-region deployment discussion
+Klarna,Erik Lindgren,CISO,fintech,meeting_booked,144000,360,outbound,2026-02-05,2026-02-10,2026-03-18,,,Demo scheduled with security + compliance
+Cigna,Patricia Nguyen,Director of Cybersecurity,healthcare,meeting_booked,200000,500,outbound,2026-02-08,2026-02-14,2026-03-20,,,Referred by Oscar Health contact
+Standard Chartered,Raj Mehta,Group CISO,banking,meeting_booked,192000,480,inbound,2026-02-10,2026-02-12,2026-03-22,,,Inbound from CISO roundtable
+Plaid,Jenny Kim,Head of Product Security,fintech,replied,112000,280,outbound,2026-02-15,2026-03-01,,,,Interested but evaluating timing
+Cerner,Robert Walsh,CISO,healthcare,replied,176000,440,outbound,2026-02-18,2026-03-05,,,,Asked for case study in healthcare
+Zurich Insurance,Hans Mueller,VP Information Security,insurance,replied,224000,560,outbound,2026-02-20,2026-03-08,,,,Forwarded to security architecture team
+Adyen,Laura de Vries,Security Engineering Lead,payments,contacted,136000,340,outbound,2026-02-25,,,,,LinkedIn connection accepted; follow-up sent
+Goldman Sachs,Chris Park,Deputy CISO,banking,contacted,288000,720,outbound,2026-02-28,,,,,Email opened 3x; no reply yet
+Aetna,Diane Foster,CISO,healthcare,contacted,168000,420,outbound,2026-03-01,,,,,Warm intro from JPMorgan contact
+Square,Alex Thompson,Head of Security,payments,contacted,120000,300,outbound,2026-03-03,,,,,Sequence started; 2 emails sent
+Humana,Karen Mitchell,VP Cybersecurity,healthcare,identified,184000,460,outbound,2026-03-10,,,,,ICP match; researching org structure
+Allianz,Stefan Weber,Group CISO,insurance,identified,240000,600,outbound,2026-03-12,,,,,Attended our webinar; high intent signal
+Nubank,Carolina Silva,CISO,fintech,identified,96000,240,outbound,2026-03-14,,,,,Expanding security team per LinkedIn
+BNP Paribas,Antoine Moreau,Head of Cyber Defense,banking,identified,272000,680,outbound,2026-03-15,,,,,Recent breach reported; timely outreach
+Molina Healthcare,Jessica Ruiz,Director of Security,healthcare,identified,144000,360,outbound,2026-03-18,,,,,Compliance deadline approaching
+N26,Markus Braun,CISO,fintech,closed_lost,104000,260,outbound,2026-01-10,2026-01-16,2026-01-22,2026-02-05,2026-03-01,Lost to incumbent vendor; budget frozen
+AIG,William Carter,VP Security Operations,insurance,closed_lost,208000,520,outbound,2026-01-18,2026-01-25,2026-02-01,2026-02-15,2026-03-08,Deprioritized security investment this quarter

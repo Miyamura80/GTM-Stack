@@ -1,5 +1,5 @@
 import { useState, useId } from "react";
-import { TrendUp, TrendDown, UsersThree, CurrencyDollar, Crosshair, ShoppingCart } from "@phosphor-icons/react";
+import { TrendUp, TrendDown, UsersThree, CalendarCheck, Crosshair, ShoppingCart } from "@phosphor-icons/react";
 
 type Period = "7d" | "30d" | "90d";
 
@@ -136,29 +136,29 @@ const METRICS = [
     },
     {
         id: "m2",
-        label: "Revenue",
-        icon: CurrencyDollar,
+        label: "Meetings This Week",
+        icon: CalendarCheck,
         color: "var(--accent-gold)",
         periods: {
             "7d": {
-                value: "$284K",
-                change: "+8.2%",
+                value: "4",
+                change: "+2",
                 direction: "up" as const,
-                data: [240, 255, 248, 262, 270, 265, 284],
+                data: [1, 0, 1, 0, 1, 0, 1],
                 labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
             },
             "30d": {
-                value: "$1.1M",
-                change: "+15.3%",
+                value: "14",
+                change: "+4",
                 direction: "up" as const,
-                data: [820, 860, 890, 870, 920, 940, 960, 980, 1020, 1050, 1080, 1100],
+                data: [2, 3, 2, 4, 3, 2, 4, 3, 3, 4, 3, 4],
                 labels: ["W1", "W2", "W3", "W4"],
             },
             "90d": {
-                value: "$3.2M",
-                change: "+28.6%",
+                value: "38",
+                change: "+12",
                 direction: "up" as const,
-                data: [2100, 2250, 2400, 2380, 2520, 2650, 2700, 2800, 2900, 3000, 3100, 3200],
+                data: [8, 9, 10, 9, 11, 12, 10, 13, 12, 14, 13, 14],
                 labels: ["Jan", "Feb", "Mar"],
             },
         },
