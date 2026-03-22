@@ -2,6 +2,7 @@ import { Hash } from "@phosphor-icons/react";
 
 const FEED = [
     {
+        id: "s1",
         platform: "twitter" as const,
         author: "@ycombinator",
         text: "Excited to announce our latest batch - 240 companies building the future. Applications for S26 are now open.",
@@ -9,6 +10,7 @@ const FEED = [
         engagement: "4.2K",
     },
     {
+        id: "s2",
         platform: "linkedin" as const,
         author: "Sarah Chen",
         text: "Just published our GTM playbook for enterprise SaaS. The key insight: outbound is dead, ecosystem-led growth is the future.",
@@ -16,6 +18,7 @@ const FEED = [
         engagement: "892",
     },
     {
+        id: "s3",
         platform: "twitter" as const,
         author: "@ProductHunt",
         text: "Top product of the day: An AI-powered sales copilot that learns your ICP and auto-qualifies leads.",
@@ -23,6 +26,7 @@ const FEED = [
         engagement: "1.8K",
     },
     {
+        id: "s4",
         platform: "linkedin" as const,
         author: "Marc Randolph",
         text: "Stop optimizing for MQLs. Start optimizing for time-to-value. Your customers will thank you.",
@@ -63,7 +67,7 @@ export function SocialPanel() {
             <div className="panel-body">
                 <div className="social-feed">
                     {FEED.map((item) => (
-                        <div className="social-item" key={item.author + item.time}>
+                        <div className="social-item" key={item.id}>
                             <PlatformIcon platform={item.platform} />
                             <div className="social-content">
                                 <div className="social-author">{item.author}</div>

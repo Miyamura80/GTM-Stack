@@ -2,6 +2,7 @@ import { CheckSquare } from "@phosphor-icons/react";
 
 const TASKS = [
     {
+        id: "t1",
         title: "Finalize Q2 pricing strategy deck for board review",
         priority: "critical" as const,
         due: "Today, 5:00 PM",
@@ -9,6 +10,7 @@ const TASKS = [
         tag: "Strategy",
     },
     {
+        id: "t2",
         title: "Review and approve new landing page A/B test variants",
         priority: "high" as const,
         due: "Tomorrow",
@@ -16,6 +18,7 @@ const TASKS = [
         tag: "Growth",
     },
     {
+        id: "t3",
         title: "Schedule partner integration call with Stripe team",
         priority: "medium" as const,
         due: "Mar 24",
@@ -36,7 +39,7 @@ export function TasksPanel() {
             </div>
             <div className="panel-body">
                 {TASKS.map((t) => (
-                    <div className="task-item" key={t.title}>
+                    <div className="task-item" key={t.id}>
                         <div className={`task-priority priority-${t.priority}`} />
                         <div className="task-content">
                             <div className="task-title">{t.title}</div>

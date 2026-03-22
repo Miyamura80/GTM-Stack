@@ -2,6 +2,7 @@ import { Megaphone } from "@phosphor-icons/react";
 
 const CAMPAIGNS = [
     {
+        id: "c1",
         name: "Enterprise SaaS - LinkedIn Ads",
         status: "active" as const,
         spend: "$4,280",
@@ -10,6 +11,7 @@ const CAMPAIGNS = [
         budgetUsed: 68,
     },
     {
+        id: "c2",
         name: "Product Launch - Google Search",
         status: "active" as const,
         spend: "$2,150",
@@ -18,6 +20,7 @@ const CAMPAIGNS = [
         budgetUsed: 43,
     },
     {
+        id: "c3",
         name: "Retargeting - Meta Ads",
         status: "paused" as const,
         spend: "$890",
@@ -40,7 +43,7 @@ export function AdsPanel() {
             <div className="panel-body">
                 <div className="campaign-list">
                     {CAMPAIGNS.map((c) => (
-                        <div className="campaign-item" key={c.name}>
+                        <div className="campaign-item" key={c.id}>
                             <div className="campaign-header">
                                 <div className="campaign-name">{c.name}</div>
                                 <div className={`campaign-status ${c.status}`}>{c.status}</div>
