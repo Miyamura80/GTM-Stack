@@ -121,7 +121,7 @@ const STAGE_COLOR_MAP: Record<string, string> = {
     Meeting: "var(--accent-gold)",
     Opportunity: "var(--accent-teal)",
     Negotiation: "var(--accent-coral)",
-    "Closed-Won": "var(--accent-emerald)",
+    "Closed-Won": "var(--accent-coral)",
 };
 
 function stageColor(stage: string): string {
@@ -309,7 +309,7 @@ function StageVelocity() {
             <div className="panel-body" style={{ padding: "12px 18px 18px" }}>
                 <div className="velocity-list">
                     {STAGE_VELOCITY.map((v, i) => (
-                        <div className="velocity-row" key={i} style={{ animationDelay: `${0.25 + i * 0.04}s` }}>
+                        <div className="velocity-row" key={`${v.from}-${v.to}`} style={{ animationDelay: `${0.25 + i * 0.04}s` }}>
                             <div className="velocity-label">
                                 {v.from} <ArrowRight size={10} weight="bold" style={{ opacity: 0.4 }} /> {v.to}
                             </div>
