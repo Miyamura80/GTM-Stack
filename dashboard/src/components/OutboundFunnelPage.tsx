@@ -1,4 +1,4 @@
-import { useState, useId } from "react";
+import { useId } from "react";
 import {
     Funnel, EnvelopeOpen, CalendarCheck, Handshake, CurrencyDollar,
     TrendUp, TrendDown, Timer, Lightning, ArrowRight, Buildings,
@@ -19,7 +19,7 @@ type DealStage =
     | "closed_lost";
 
 interface FunnelStageData {
-    key: string;
+    key: DealStage;
     label: string;
     count: number;
     value: number;
@@ -189,6 +189,16 @@ function FunnelWaterfall() {
                     viewBox={`0 0 ${totalW} ${totalH}`}
                     style={{ display: "block" }}
                 >
+                    {/* Gradient definitions */}
+                    <defs>
+                        {FUNNEL_STAGES.map((stage, i) => (
+                            <linearGradient key={stage.key} id={`bar-${id}-${i}`} x1="0" y1="0" x2="1" y2="0">
+                                <stop offset="0%" stopColor={stage.color} stopOpacity="0.9" />
+                                <stop offset="100%" stopColor={stage.color} stopOpacity="0.5" />
+                            </linearGradient>
+                        ))}
+                    </defs>
+
                     {FUNNEL_STAGES.map((stage, i) => {
                         const y = i * (barH + gap);
                         const barW = (stage.count / maxCount) * barAreaW;
@@ -200,14 +210,6 @@ function FunnelWaterfall() {
 
                         return (
                             <g key={stage.key}>
-                                {/* Gradient */}
-                                <defs>
-                                    <linearGradient id={gradId} x1="0" y1="0" x2="1" y2="0">
-                                        <stop offset="0%" stopColor={stage.color} stopOpacity="0.9" />
-                                        <stop offset="100%" stopColor={stage.color} stopOpacity="0.5" />
-                                    </linearGradient>
-                                </defs>
-
                                 {/* Stage label */}
                                 <text
                                     x={padLeft - 10}
