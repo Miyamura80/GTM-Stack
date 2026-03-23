@@ -1,0 +1,24 @@
+signals:
+  - dummy: true
+    competitor: nightfall
+    type: product
+    date: 2026-03-19
+    description: >
+      Launched browser extension for real-time DLP scanning
+      across all SaaS apps with on-device ML classification.
+    action: opportunity
+    insight: >
+      We could differentiate with deeper API integrations
+      vs. browser-layer approach.
+
+  - dummy: true
+    competitor: cyberhaven
+    type: funding
+    date: 2026-03-17
+    description: >
+      Raised $88M Series C at $450M valuation. Expanding
+      enterprise sales team aggressively.
+    action: watch
+    insight: >
+      Expect increased presence at RSA and more aggressive
+      enterprise outbound.

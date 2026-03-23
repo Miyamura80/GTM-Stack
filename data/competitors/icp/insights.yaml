@@ -1,0 +1,32 @@
+insights:
+  - dummy: true
+    title: Developer-led buying is rising
+    accent_color: emerald
+    body: >
+      Mid-market SaaS companies increasingly let engineering teams
+      evaluate and select security tools. Bottom-up adoption through
+      free tiers and API-first DX is becoming the dominant GTM motion.
+
+  - dummy: true
+    title: Compliance alone doesn't win deals
+    accent_color: gold
+    body: >
+      Competitors leading with pure compliance messaging are losing
+      to those showing productivity value. CISOs want to see how DLP
+      reduces friction, not just checks boxes.
+
+  - dummy: true
+    title: Adjacent players moving downstream
+    accent_color: coral
+    body: >
+      Enterprise vendors like Varonis and Forcepoint are introducing
+      mid-market pricing. Expect increased competition in our core
+      segment within 6-12 months.
+
+  - dummy: true
+    title: HIPAA is an underserved niche
+    accent_color: blue
+    body: >
+      Only 2 competitors actively target healthcare. AI-native DLP
+      with HIPAA-specific policies and audit trails could capture
+      this segment with relatively low competition.

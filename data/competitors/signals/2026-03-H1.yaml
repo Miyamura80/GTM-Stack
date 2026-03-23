@@ -1,0 +1,76 @@
+signals:
+  - dummy: true
+    competitor: nightfall
+    type: product
+    date: 2026-03-01
+    description: >
+      Launched browser extension for real-time DLP scanning
+      across all SaaS apps with on-device ML classification.
+    action: opportunity
+    insight: >
+      We could differentiate with deeper API integrations
+      vs. browser-layer approach.
+
+  - dummy: true
+    competitor: polymer
+    type: product
+    date: 2026-03-14
+    description: >
+      Added Slack integration for auto-redaction of sensitive data
+      in real time with admin override workflows.
+    action: respond
+    insight: >
+      Our Slack coverage is partial - prioritize parity here.
+
+  - dummy: true
+    competitor: varonis
+    type: product
+    date: 2026-03-12
+    description: >
+      Released AI-powered data classification engine that claims
+      95% accuracy on unstructured data.
+    action: watch
+
+  - dummy: true
+    competitor: metomic
+    type: content
+    date: 2026-03-10
+    description: >
+      Published comprehensive CISO guide to SaaS data security,
+      gaining significant LinkedIn traction.
+    action: opportunity
+    insight: >
+      Content gap - we should produce competing thought leadership
+      for our ICP.
+
+  - dummy: true
+    competitor: netskope
+    type: hiring
+    date: 2026-03-08
+    description: >
+      Hiring 15 ML engineers for DLP team, signaling major
+      investment in AI-driven classification.
+    action: watch
+
+  - dummy: true
+    competitor: strac
+    type: partnerships
+    date: 2026-03-05
+    description: >
+      Announced SOC 2 compliance partnership with Vanta, offering
+      bundled compliance-plus-DLP packages.
+    action: opportunity
+    insight: >
+      Compliance bundling is a strong GTM motion for mid-market -
+      explore similar partnerships.
+
+  - dummy: true
+    competitor: sentra
+    type: product
+    date: 2026-03-03
+    description: >
+      Launched data security posture dashboard with risk scoring
+      across AWS, GCP, and Azure.
+    action: watch
+    insight: >
+      Multi-cloud posture visibility is becoming table stakes.

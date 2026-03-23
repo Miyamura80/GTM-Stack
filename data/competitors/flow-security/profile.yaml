@@ -1,0 +1,6 @@
+dummy: true
+name: Flow Security
+category: emerging
+positioning: Data-flow runtime security for cloud pipelines
+overlap: 2
+color: blue
