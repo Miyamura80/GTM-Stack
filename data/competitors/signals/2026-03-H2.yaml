@@ -1,15 +1,15 @@
 signals:
   - dummy: true
     competitor: nightfall
-    type: product
+    type: content
     date: 2026-03-19
     description: >
-      Launched browser extension for real-time DLP scanning
-      across all SaaS apps with on-device ML classification.
-    action: opportunity
+      Published case study showing 40% reduction in false positives
+      after switching to transformer-based classification models.
+    action: watch
     insight: >
-      We could differentiate with deeper API integrations
-      vs. browser-layer approach.
+      Their accuracy narrative is gaining traction - we should
+      benchmark and publish our own metrics.
 
   - dummy: true
     competitor: cyberhaven

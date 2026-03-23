@@ -1,11 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { readFileSync } from "fs";
-import { createRequire } from "module";
+import jsYaml from "js-yaml";
 import type { Plugin } from "vite";
-
-const require = createRequire(import.meta.url);
-const jsYaml = require("js-yaml");
 
 function yamlPlugin(): Plugin {
     return {

@@ -128,6 +128,9 @@ function formatDate(dateStr: string): string {
 
 export const SIGNALS: IntelSignal[] = Object.values(signalModules)
     .flatMap(mod => mod.default.signals ?? [])
+    .sort((a, b) =>
+        new Date(b.date as string).getTime() - new Date(a.date as string).getTime()
+    )
     .map((raw, i) => ({
         id: `s${i + 1}`,
         competitorId: raw.competitor as string,
@@ -136,8 +139,7 @@ export const SIGNALS: IntelSignal[] = Object.values(signalModules)
         description: (raw.description as string).trim(),
         actionTag: raw.action as ActionTag,
         insight: raw.insight ? (raw.insight as string).trim() : undefined,
-    }))
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    }));
 
 /* ------------------------------------------------------------------ */
 /*  ICP segments & insights                                            */
