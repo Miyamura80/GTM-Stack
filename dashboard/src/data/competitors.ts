@@ -110,8 +110,8 @@ export const COMPETITORS: Competitor[] = Object.entries(profileModules)
             overlapLevel: raw.overlap as number,
             color: resolveColor(raw.color as string),
         };
-    },
-);
+    })
+    .sort((a, b) => a.name.localeCompare(b.name));
 
 /* ------------------------------------------------------------------ */
 /*  Signals                                                            */
@@ -134,8 +134,8 @@ export const SIGNALS: IntelSignal[] = Object.values(signalModules)
     .sort((a, b) =>
         new Date(b.date as string).getTime() - new Date(a.date as string).getTime()
     )
-    .map((raw) => ({
-        id: `${raw.competitor}-${(raw.date as string).split("T")[0]}-${raw.type}`,
+    .map((raw, i) => ({
+        id: `${raw.competitor}-${(raw.date as string).split("T")[0]}-${raw.type}-${i}`,
         competitorId: raw.competitor as string,
         type: raw.type as SignalType,
         date: formatDate(raw.date as string),
@@ -170,5 +170,9 @@ export const ICP_INSIGHTS: ICPInsight[] = insRaw.insights.map((raw, i) => ({
 /* ------------------------------------------------------------------ */
 
 export function getCompetitor(id: string): Competitor | undefined {
-    return COMPETITORS.find(c => c.id === id);
+    const found = COMPETITORS.find(c => c.id === id);
+    if (!found && import.meta.env.DEV) {
+        console.warn(`[competitors] No profile found for competitor id: "${id}"`);
+    }
+    return found;
 }
