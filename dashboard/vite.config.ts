@@ -21,7 +21,7 @@ export default defineConfig({
     plugins: [react(), yamlPlugin()],
     server: {
         fs: {
-            allow: [".."],
+            allow: ["../data"],
         },
     },
 });

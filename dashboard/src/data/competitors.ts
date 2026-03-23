@@ -122,6 +122,14 @@ const signalModules = import.meta.glob<{ default: { signals: Record<string, unkn
     { eager: true },
 );
 
+function djb2(str: string): string {
+    let hash = 5381;
+    for (let i = 0; i < str.length; i++) {
+        hash = ((hash << 5) + hash + str.charCodeAt(i)) >>> 0;
+    }
+    return hash.toString(36);
+}
+
 function formatDate(dateStr: string): string {
     // Parse date parts to avoid UTC-vs-local timezone shift
     const [year, month, day] = dateStr.split("T")[0].split("-").map(Number);
@@ -137,7 +145,7 @@ export const SIGNALS: IntelSignal[] = Object.values(signalModules)
         new Date(b.date as string).getTime() - new Date(a.date as string).getTime()
     )
     .map((raw) => ({
-        id: `${raw.competitor}-${(raw.date as string).split("T")[0]}-${raw.type}-${btoa(raw.description as string).slice(0, 8)}`,
+        id: `${raw.competitor}-${(raw.date as string).split("T")[0]}-${raw.type}-${djb2((raw.description as string).trim())}`,
         competitorId: raw.competitor as string,
         type: raw.type as SignalType,
         date: formatDate(raw.date as string),
