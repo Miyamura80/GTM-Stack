@@ -96,14 +96,8 @@ function resolveColor(key: string): string {
     return COLOR_MAP[key] ?? key;
 }
 
-const INFRA_FOLDERS = new Set(["icp", "signals"]);
-
+// Glob only matches folders containing profile.yaml, so icp/ and signals/ are excluded implicitly
 export const COMPETITORS: Competitor[] = Object.entries(profileModules)
-    .filter(([path]) => {
-        const parts = path.split("/");
-        const folder = parts[parts.length - 2];
-        return !INFRA_FOLDERS.has(folder) && !folder.startsWith("_");
-    })
     .map(([path, mod]) => {
         const raw = mod.default;
         const parts = path.split("/");
@@ -138,8 +132,8 @@ export const SIGNALS: IntelSignal[] = Object.values(signalModules)
     .sort((a, b) =>
         new Date(b.date as string).getTime() - new Date(a.date as string).getTime()
     )
-    .map((raw) => ({
-        id: `${raw.competitor}-${raw.date}-${raw.type}`,
+    .map((raw, index) => ({
+        id: `${raw.competitor}-${raw.date}-${raw.type}-${index}`,
         competitorId: raw.competitor as string,
         type: raw.type as SignalType,
         date: formatDate(raw.date as string),

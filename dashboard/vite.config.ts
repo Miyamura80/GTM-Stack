@@ -19,4 +19,9 @@ function yamlPlugin(): Plugin {
 
 export default defineConfig({
     plugins: [react(), yamlPlugin()],
+    server: {
+        fs: {
+            allow: [".."],
+        },
+    },
 });
