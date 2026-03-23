@@ -123,7 +123,9 @@ const signalModules = import.meta.glob<{ default: { signals: Record<string, unkn
 );
 
 function formatDate(dateStr: string): string {
-    const d = new Date(dateStr);
+    // Parse date parts to avoid UTC-vs-local timezone shift
+    const [year, month, day] = dateStr.split("T")[0].split("-").map(Number);
+    const d = new Date(year, month - 1, day);
     return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 }
 
@@ -132,8 +134,8 @@ export const SIGNALS: IntelSignal[] = Object.values(signalModules)
     .sort((a, b) =>
         new Date(b.date as string).getTime() - new Date(a.date as string).getTime()
     )
-    .map((raw, index) => ({
-        id: `${raw.competitor}-${raw.date}-${raw.type}-${index}`,
+    .map((raw) => ({
+        id: `${raw.competitor}-${(raw.date as string).split("T")[0]}-${raw.type}`,
         competitorId: raw.competitor as string,
         type: raw.type as SignalType,
         date: formatDate(raw.date as string),
@@ -167,8 +169,6 @@ export const ICP_INSIGHTS: ICPInsight[] = insRaw.insights.map((raw, i) => ({
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
 
-export function getCompetitor(id: string): Competitor {
-    const found = COMPETITORS.find(c => c.id === id);
-    if (!found) throw new Error(`Unknown competitor id: "${id}"`);
-    return found;
+export function getCompetitor(id: string): Competitor | undefined {
+    return COMPETITORS.find(c => c.id === id);
 }

@@ -111,6 +111,7 @@ function SignalFilters({ active, onChange }: { active: SignalFilter; onChange: (
 
 function SignalCard({ signal }: { signal: IntelSignal }) {
     const comp = getCompetitor(signal.competitorId);
+    if (!comp) return null;
 
     return (
         <div className="signal-card">
@@ -157,6 +158,7 @@ function ICPOverlapSection() {
                         <div className="icp-segment-competitors">
                             {seg.competitors.map(cId => {
                                 const c = getCompetitor(cId);
+                                if (!c) return null;
                                 return (
                                     <div
                                         key={cId}
