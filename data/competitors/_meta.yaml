@@ -1,0 +1,28 @@
+colors:
+  coral: "var(--accent-coral)"
+  gold: "var(--accent-gold)"
+  blue: "var(--accent-blue)"
+  violet: "var(--accent-violet)"
+  emerald: "var(--accent-emerald)"
+
+categories:
+  - key: direct
+    label: Direct
+  - key: adjacent
+    label: Adjacent
+  - key: emerging
+    label: Emerging
+
+signal_types:
+  - key: product
+    label: Product
+  - key: pricing
+    label: Pricing
+  - key: content
+    label: Content
+  - key: hiring
+    label: Hiring
+  - key: partnerships
+    label: Partners
+  - key: funding
+    label: Funding

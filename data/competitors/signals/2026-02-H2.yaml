@@ -1,0 +1,24 @@
+signals:
+  - dummy: true
+    competitor: forcepoint
+    type: pricing
+    date: 2026-02-28
+    description: >
+      Introduced usage-based pricing tier targeting mid-market,
+      undercutting traditional per-seat model.
+    action: respond
+    insight: >
+      Legacy vendors moving downstream with flexible pricing -
+      watch for deal pressure.
+
+  - dummy: true
+    competitor: nightfall
+    type: content
+    date: 2026-02-25
+    description: >
+      Launched developer documentation hub and open-source SDK
+      for custom DLP policy creation.
+    action: opportunity
+    insight: >
+      Developer experience as a moat - our API docs could use
+      a similar refresh.

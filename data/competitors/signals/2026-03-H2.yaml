@@ -1,0 +1,24 @@
+signals:
+  - dummy: true
+    competitor: nightfall
+    type: content
+    date: 2026-03-19
+    description: >
+      Published case study showing 40% reduction in false positives
+      after switching to transformer-based classification models.
+    action: watch
+    insight: >
+      Their accuracy narrative is gaining traction - we should
+      benchmark and publish our own metrics.
+
+  - dummy: true
+    competitor: cyberhaven
+    type: funding
+    date: 2026-03-17
+    description: >
+      Raised $88M Series C at $450M valuation. Expanding
+      enterprise sales team aggressively.
+    action: watch
+    insight: >
+      Expect increased presence at RSA and more aggressive
+      enterprise outbound.

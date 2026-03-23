@@ -133,6 +133,10 @@ Structure as: `init()` → `continue(id)` → `cleanup(id)`
 - Use descriptive IDs (runId, taskId)
 - Handle rate limits, timeouts, retries at system boundaries
 
+## Skills
+
+- Always create skills as **local skills** (project-level), not global skills, unless explicitly told otherwise.
+
 ## Git Workflow
 - **Protected Branch**: `main` is protected. Do not push directly to `main`. Use PRs.
 - **Merge Strategy**: Squash and merge.

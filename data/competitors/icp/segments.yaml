@@ -1,0 +1,39 @@
+segments:
+  - dummy: true
+    name: "Mid-market SaaS (200-1000 emp)"
+    competitors: [nightfall, polymer, strac]
+    our_presence: "yes"
+    opportunity_note: >
+      Core segment - differentiate on deployment speed and
+      agentic automation
+
+  - dummy: true
+    name: "Enterprise financial services"
+    competitors: [cyberhaven, varonis, forcepoint]
+    our_presence: partial
+    opportunity_note: >
+      Expand compliance storytelling; competitor activity
+      signals strong demand
+
+  - dummy: true
+    name: "Healthcare / HIPAA compliance"
+    competitors: [metomic, digital-guardian]
+    our_presence: partial
+    opportunity_note: >
+      Underserved by AI-native solutions - high opportunity for us
+
+  - dummy: true
+    name: "Remote-first tech companies"
+    competitors: [nightfall, polymer, strac, sentra]
+    our_presence: "yes"
+    opportunity_note: >
+      Crowded segment - compete on developer experience and
+      API-first approach
+
+  - dummy: true
+    name: "Regulated industries (gov)"
+    competitors: [forcepoint, digital-guardian, varonis]
+    our_presence: "no"
+    opportunity_note: >
+      High barrier to entry but Forcepoint aging - consider
+      as long-term play
