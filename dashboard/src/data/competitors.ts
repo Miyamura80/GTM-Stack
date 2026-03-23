@@ -129,13 +129,15 @@ function formatDate(dateStr: string): string {
     return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 }
 
+// raw.date is a string here because the YAML plugin runs JSON.stringify on
+// js-yaml's output, which converts Date objects to ISO strings ("2026-03-19T00:00:00.000Z").
 export const SIGNALS: IntelSignal[] = Object.values(signalModules)
     .flatMap(mod => mod.default.signals ?? [])
     .sort((a, b) =>
         new Date(b.date as string).getTime() - new Date(a.date as string).getTime()
     )
-    .map((raw, i) => ({
-        id: `${raw.competitor}-${(raw.date as string).split("T")[0]}-${raw.type}-${i}`,
+    .map((raw) => ({
+        id: `${raw.competitor}-${(raw.date as string).split("T")[0]}-${raw.type}-${btoa(raw.description as string).slice(0, 8)}`,
         competitorId: raw.competitor as string,
         type: raw.type as SignalType,
         date: formatDate(raw.date as string),
