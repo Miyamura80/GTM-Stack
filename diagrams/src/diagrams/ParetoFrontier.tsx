@@ -33,7 +33,7 @@ const paretoPoints: [number, number, string, boolean][] = paretoT.map(
   }
 );
 
-// Dominated points — scattered with varying distance from frontier
+// Dominated points - scattered with varying distance from frontier
 const dominated: [number, number, string, boolean][] = [
   [0.18, 0.80, "L", false],
   [0.55, 0.68, "M", false],
@@ -122,7 +122,7 @@ export function ParetoFrontierDiagram() {
         fontFamily="Inter, system-ui, sans-serif"
         opacity={0.6}
       >
-        Cost vs. Performance trade-off — optimal solutions on the frontier
+        Cost vs. Performance trade-off - optimal solutions on the frontier
       </text>
 
       {/* Axes */}
