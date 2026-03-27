@@ -8,6 +8,12 @@ old_scripts/
 
 # Agent session files
 session-*.md
+.agents/
+.claude/scheduled_tasks.lock
+
+# Build artifacts
+*.tsbuildinfo
+.vite/
 
 # Overwrite global config
 .global_config.yaml
