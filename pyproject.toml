@@ -90,6 +90,7 @@ exclude = [
     "common/",
     "src/utils/logging_config.py",
     "src/utils/context.py",
+    "conftest.py",
     "tests/conftest.py",
     "init/",
     "onboard.py"
