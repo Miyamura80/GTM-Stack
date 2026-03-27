@@ -14,7 +14,7 @@ export function DataFlowDiagram() {
       style={{ background: brand.black, borderRadius: 12 }}
     >
       <DotGrid w={W} h={H} />
-      <WBDefs />
+      <WBDefs id="data-flow" />
 
       <text
         x={40}
@@ -78,16 +78,16 @@ export function DataFlowDiagram() {
       <WBBox x={530} y={328} w={140} h={56} label="Dashboard" />
 
       {/* Arrows: sources → processing */}
-      <WBArrow x1={140} y1={128} x2={260} y2={155} />
-      <WBArrow x1={140} y1={204} x2={260} y2={168} />
-      <WBArrow x1={140} y1={280} x2={260} y2={265} />
-      <WBArrow x1={140} y1={356} x2={260} y2={278} />
+      <WBArrow diagramId="data-flow" x1={140} y1={128} x2={260} y2={155} />
+      <WBArrow diagramId="data-flow" x1={140} y1={204} x2={260} y2={168} />
+      <WBArrow diagramId="data-flow" x1={140} y1={280} x2={260} y2={265} />
+      <WBArrow diagramId="data-flow" x1={140} y1={356} x2={260} y2={278} />
 
       {/* Arrows: processing → outputs */}
-      <WBArrow x1={400} y1={155} x2={530} y2={128} />
-      <WBArrow x1={400} y1={165} x2={530} y2={204} />
-      <WBArrow x1={400} y1={268} x2={530} y2={280} />
-      <WBArrow x1={400} y1={278} x2={530} y2={356} />
+      <WBArrow diagramId="data-flow" x1={400} y1={155} x2={530} y2={128} />
+      <WBArrow diagramId="data-flow" x1={400} y1={165} x2={530} y2={204} />
+      <WBArrow diagramId="data-flow" x1={400} y1={268} x2={530} y2={280} />
+      <WBArrow diagramId="data-flow" x1={400} y1={278} x2={530} y2={356} />
     </svg>
   );
 }

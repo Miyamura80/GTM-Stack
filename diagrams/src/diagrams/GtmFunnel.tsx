@@ -21,7 +21,7 @@ export function GtmFunnelDiagram() {
       style={{ background: brand.black, borderRadius: 12 }}
     >
       <DotGrid w={W} h={H} />
-      <WBDefs />
+      <WBDefs id="gtm-funnel" />
 
       {/* Title */}
       <text
@@ -66,6 +66,7 @@ export function GtmFunnelDiagram() {
               y1={180}
               x2={stages[i + 1].x}
               y2={180}
+              diagramId="gtm-funnel"
             />
           )}
         </React.Fragment>

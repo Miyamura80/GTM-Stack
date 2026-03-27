@@ -1,3 +1,4 @@
+import type { ComponentType } from "react";
 import { GtmFunnelDiagram } from "./GtmFunnel";
 import { DataFlowDiagram } from "./DataFlow";
 import { TechStackDiagram } from "./TechStack";
@@ -7,7 +8,7 @@ export interface DiagramEntry {
   id: string;
   title: string;
   description: string;
-  component: React.ComponentType;
+  component: ComponentType;
 }
 
 export const diagramRegistry: DiagramEntry[] = [

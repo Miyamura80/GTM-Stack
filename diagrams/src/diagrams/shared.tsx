@@ -75,6 +75,7 @@ interface ArrowProps {
   y2: number;
   color?: string;
   label?: string;
+  diagramId?: string;
 }
 
 export function WBArrow({
@@ -84,6 +85,7 @@ export function WBArrow({
   y2,
   color = brand.cyan,
   label,
+  diagramId = "default",
 }: ArrowProps) {
   const dx = x2 - x1;
   const dy = y2 - y1;
@@ -102,7 +104,7 @@ export function WBArrow({
         y2={tipY}
         stroke={color}
         strokeWidth={1.5}
-        markerEnd="url(#arrowhead)"
+        markerEnd={`url(#arrowhead-${diagramId})`}
         opacity={0.7}
       />
       {label && (
@@ -121,11 +123,11 @@ export function WBArrow({
   );
 }
 
-export function WBDefs() {
+export function WBDefs({ id = "default" }: { id?: string }) {
   return (
     <defs>
       <marker
-        id="arrowhead"
+        id={`arrowhead-${id}`}
         markerWidth="8"
         markerHeight="6"
         refX="8"

@@ -17,7 +17,8 @@ export function App() {
         style={{
           padding: "40px 48px 32px",
           borderBottom: `1px solid ${brand.grey}33`,
-          position: "relative",
+          position: "sticky",
+          top: 0,
           zIndex: 200,
           background: brand.black,
         }}
@@ -74,7 +75,6 @@ export function App() {
             background: brand.black,
             display: "flex",
             flexDirection: "column",
-            top: "var(--header-height, 0px)",
           }}
         >
           <div

@@ -100,7 +100,7 @@ export function ParetoFrontierDiagram() {
       style={{ background: brand.black, borderRadius: 12 }}
     >
       <DotGrid w={W} h={H} />
-      <WBDefs />
+      <WBDefs id="pareto-frontier" />
 
       {/* Title */}
       <text

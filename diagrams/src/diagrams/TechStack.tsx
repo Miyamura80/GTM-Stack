@@ -49,7 +49,7 @@ export function TechStackDiagram() {
       style={{ background: brand.black, borderRadius: 12 }}
     >
       <DotGrid w={W} h={H} />
-      <WBDefs />
+      <WBDefs id="tech-stack" />
 
       <text
         x={40}
