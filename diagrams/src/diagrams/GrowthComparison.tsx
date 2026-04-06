@@ -27,7 +27,7 @@ function steadyGrowth(t: number): number {
 // Volatile curve - rapid growth with violent high-frequency oscillations
 // Terminal value ~3x the steady curve
 function volatileCurve(t: number): number {
-  const base = 0.05 + 2.95 * Math.pow(t, 0.06 + t * 2.5);
+  const base = 0.05 + 2.95 * Math.pow(t, Math.max(1.0, 0.06 + t * 2.5));
   // Scale noise proportionally to base for consistent visual volatility
   const noise =
     (Math.sin(t * 60) * 0.10 +
