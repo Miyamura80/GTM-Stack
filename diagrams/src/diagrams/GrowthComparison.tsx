@@ -1,6 +1,6 @@
 import React from "react";
 import { brand } from "../brand";
-import { WBDefs, DotGrid } from "./shared";
+import { DotGrid } from "./shared";
 
 const W = 720;
 const H = 480;
@@ -25,7 +25,7 @@ function steadyGrowth(t: number): number {
 }
 
 // Volatile curve - rapid growth with violent high-frequency oscillations
-// Terminal value ~5x the steady curve
+// Terminal value ~3x the steady curve
 function volatileCurve(t: number): number {
   const base = 0.05 + 2.95 * Math.pow(t, 0.06 + t * 2.5);
   // Scale noise proportionally to base for consistent visual volatility
@@ -63,7 +63,11 @@ export function GrowthComparisonDiagram() {
       style={{ background: brand.black, borderRadius: 12 }}
     >
       <DotGrid w={W} h={H} />
-      <WBDefs id="growth-comparison" />
+      <defs>
+        <clipPath id="plot-area-growth">
+          <rect x={PAD.left} y={PAD.top} width={plotW} height={plotH} />
+        </clipPath>
+      </defs>
 
       {/* Title */}
       <text
@@ -156,6 +160,7 @@ export function GrowthComparisonDiagram() {
         opacity={0.7}
         strokeLinecap="round"
         strokeLinejoin="round"
+        clipPath="url(#plot-area-growth)"
       />
 
       {/* Steady growth curve (solid cyan) */}
@@ -166,6 +171,7 @@ export function GrowthComparisonDiagram() {
         strokeWidth={2.5}
         strokeLinecap="round"
         strokeLinejoin="round"
+        clipPath="url(#plot-area-growth)"
       />
 
       {/* Legend */}
