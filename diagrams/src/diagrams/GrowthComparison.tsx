@@ -24,7 +24,7 @@ function steadyGrowth(t: number): number {
   return 0.05 + 0.95 * (1 - Math.exp(-2.5 * t));
 }
 
-// Volatile curve — rapid growth with violent high-frequency oscillations
+// Volatile curve - rapid growth with violent high-frequency oscillations
 // Terminal value ~5x the steady curve
 function volatileCurve(t: number): number {
   const base = 0.05 + 2.95 * Math.pow(t, 0.06 + t * 2.5);
