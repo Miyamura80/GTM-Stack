@@ -146,4 +146,20 @@ curl -X POST "https://api.deepgram.com/v1/listen?model=nova-3&smart_format=true"
 | On-demand transcription | Deepgram (cheapest), AssemblyAI (richest features), Whisper (self-hostable) |
 | Rich metadata (guests, credits) | Podchaser |
 | Claude/AI agent integration (MCP) | Podscan MCP, Pod Engine MCP |
-| Budget-conscious MVP | Podcast Index (free) + Taddy free tier + Whisper self-hosted |
+| Budget-conscious MVP | Podcast Index (free) + Taddy free tier + Deepgram ($200 free credits) |
+
+## Conclusion (2026-04-06)
+
+**Final stack chosen:**
+
+- **Discovery/metadata:** Podcast Index (free, no limits)
+- **Transcription:** Deepgram Nova-3 ($0.0043/min, $200 free credits = ~700 hrs)
+
+**Why Deepgram over alternatives:**
+
+- Whisper (local) was too slow on CPU for practical use — a 60-min episode took far too long
+- AssemblyAI is 60-90x more expensive than Deepgram ($0.37/min vs $0.0043/min) with negligible accuracy difference on clean podcast audio
+- OpenAI Whisper API lacks speaker diarization
+- Deepgram is the cheapest cloud option, fastest, and includes diarization out of the box
+
+**Dropped:** Whisper self-hosted (removed from dependencies to also drop torch/pytorch bloat).
