@@ -3,6 +3,7 @@ import { GtmFunnelDiagram } from "./GtmFunnel";
 import { DataFlowDiagram } from "./DataFlow";
 import { TechStackDiagram } from "./TechStack";
 import { ParetoFrontierDiagram } from "./ParetoFrontier";
+import { GrowthComparisonDiagram } from "./GrowthComparison";
 
 export interface DiagramEntry {
   id: string;
@@ -39,5 +40,12 @@ export const diagramRegistry: DiagramEntry[] = [
     description:
       "Cost vs. performance trade-off chart showing Pareto-optimal solutions on the frontier.",
     component: ParetoFrontierDiagram,
+  },
+  {
+    id: "growth-comparison",
+    title: "Growth Comparison",
+    description:
+      "Side-by-side comparison of steady monotonic growth vs. volatile high-growth codebase progression.",
+    component: GrowthComparisonDiagram,
   },
 ];
