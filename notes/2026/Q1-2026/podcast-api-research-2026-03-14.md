@@ -157,7 +157,7 @@ curl -X POST "https://api.deepgram.com/v1/listen?model=nova-3&smart_format=true"
 
 **Why Deepgram over alternatives:**
 
-- Whisper (local) was too slow on CPU for practical use — a 60-min episode took far too long
+- Whisper (local) was too slow on CPU for practical use - a 60-min episode took far too long
 - AssemblyAI is 60-90x more expensive than Deepgram ($0.37/min vs $0.0043/min) with negligible accuracy difference on clean podcast audio
 - OpenAI Whisper API lacks speaker diarization
 - Deepgram is the cheapest cloud option, fastest, and includes diarization out of the box
