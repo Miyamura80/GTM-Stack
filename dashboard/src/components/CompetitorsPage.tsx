@@ -44,7 +44,7 @@ function CompetitorChip({ competitor }: { competitor: Competitor }) {
         <div className="competitor-chip">
             <div
                 className="competitor-avatar"
-                style={{ background: competitor.color, color: "#08080a" }}
+                style={{ background: competitor.color, color: "#000000" }}
             >
                 {competitor.name[0]}
             </div>
@@ -119,7 +119,7 @@ function SignalCard({ signal }: { signal: IntelSignal }) {
                 <div className="signal-competitor">
                     <div
                         className="competitor-avatar competitor-avatar--sm"
-                        style={{ background: comp.color, color: "#08080a" }}
+                        style={{ background: comp.color, color: "#000000" }}
                     >
                         {comp.name[0]}
                     </div>
@@ -163,7 +163,7 @@ function ICPOverlapSection() {
                                     <div
                                         key={cId}
                                         className="icp-competitor-dot"
-                                        style={{ background: c.color, color: "#08080a" }}
+                                        style={{ background: c.color, color: "#000000" }}
                                         title={c.name}
                                     >
                                         {c.name[0]}
