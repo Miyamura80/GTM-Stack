@@ -2023,3 +2023,427 @@ body::before {
   white-space: nowrap;
   flex-shrink: 0;
 }
+
+/* ================================================================== */
+/*  Responsive: nav tab label variants                                 */
+/* ================================================================== */
+
+.nav-tab-short {
+  display: none;
+}
+
+/* ================================================================== */
+/*  Chat FAB + overlay (mobile/tablet only, hidden on desktop)         */
+/* ================================================================== */
+
+.chat-container {
+  display: contents;
+}
+
+.chat-fab {
+  display: none;
+}
+
+.chat-overlay-backdrop {
+  display: none;
+}
+
+/* ================================================================== */
+/*  Reduced motion                                                     */
+/* ================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .chat-container,
+  .chat-overlay-backdrop,
+  .chat-fab {
+    transition: none;
+  }
+}
+
+/* ================================================================== */
+/*  Responsive: Tablet (768px – 1023px)                                */
+/* ================================================================== */
+
+@media (max-width: 1023px) {
+  html, body, #root {
+    overflow: auto;
+  }
+
+  .dashboard {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .dashboard-main {
+    overflow: auto;
+    min-height: auto;
+  }
+
+  /* Chat becomes a slide-over panel */
+  .chat-container {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 340px;
+    z-index: 100;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .chat-container.open {
+    transform: translateX(0);
+  }
+
+  .chat-container .chat-panel {
+    height: 100%;
+  }
+
+  .chat-overlay-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  .chat-overlay-backdrop.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .chat-fab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 101;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    border: 1px solid var(--border-bright);
+    background: var(--accent-gold);
+    color: var(--bg-base);
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(201, 162, 39, 0.3);
+    transition: transform 0.15s, box-shadow 0.2s;
+  }
+
+  .chat-fab:hover {
+    transform: scale(1.06);
+    box-shadow: 0 6px 28px rgba(201, 162, 39, 0.4);
+  }
+
+  .chat-fab:focus-visible {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 2px;
+  }
+
+  .chat-fab:active {
+    transform: scale(0.95);
+  }
+
+  /* Nav: show short labels */
+  .nav-tab-full {
+    display: none;
+  }
+
+  .nav-tab-short {
+    display: inline;
+  }
+
+  /* Metrics: 2 columns */
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .metric-card:nth-child(2) {
+    border-right: none;
+  }
+
+  .metric-card:nth-child(3),
+  .metric-card:nth-child(4) {
+    border-top: 1px solid var(--border);
+  }
+
+  .metric-card:nth-child(4) {
+    border-right: none;
+  }
+
+  .content-grid {
+    overflow: auto;
+  }
+
+  /* Outbound funnel */
+  .outbound-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .funnel-metrics-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Channels */
+  .channels-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Competitors */
+  .signals-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .icp-insights-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* ICP segment rows: allow wrapping */
+  .icp-segment-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .icp-segment-name {
+    min-width: 160px;
+  }
+
+  .icp-opportunity-note {
+    flex-basis: 100%;
+  }
+}
+
+/* ================================================================== */
+/*  Responsive: Mobile (< 768px)                                       */
+/* ================================================================== */
+
+@media (max-width: 767px) {
+  .dashboard-main {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  /* Header: stack vertically */
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .dashboard-title {
+    font-size: 22px;
+  }
+
+  /* Nav: horizontal scroll */
+  .dashboard-nav {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex-shrink: 0;
+  }
+
+  .dashboard-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Larger touch targets */
+  .nav-tab {
+    font-size: 11px;
+    padding: 8px 14px;
+    white-space: nowrap;
+  }
+
+  .period-btn {
+    padding: 6px 12px;
+  }
+
+  /* Metrics: single column on very small, 2 cols on wider phones */
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .metric-value {
+    font-size: 28px;
+  }
+
+  .metric-sparkline {
+    display: none;
+  }
+
+  /* Content grid: single column */
+  .content-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    overflow: auto;
+  }
+
+  .panel-metrics {
+    grid-column: 1;
+  }
+
+  /* Metrics toolbar: stack */
+  .metrics-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding-bottom: 10px;
+  }
+
+  .period-selector {
+    margin-left: 18px;
+    margin-bottom: 4px;
+  }
+
+  /* Chat slide-over: full width on mobile */
+  .chat-container {
+    width: 100%;
+  }
+
+  /* Outbound */
+  .outbound-page {
+    padding: 12px;
+    gap: 14px;
+  }
+
+  .funnel-metrics-strip {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .funnel-metric-card {
+    padding: 12px 14px;
+  }
+
+  .funnel-metric-value {
+    font-size: 22px;
+  }
+
+  .velocity-label {
+    min-width: 100px;
+    font-size: 9px;
+  }
+
+  /* Channels */
+  .channels-page {
+    gap: 14px;
+  }
+
+  .channels-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Matrix: single column on mobile */
+  .matrix-grid {
+    grid-template-columns: 1fr;
+    padding-left: 0;
+  }
+
+  .matrix-y-label {
+    display: none;
+  }
+
+  /* Competitors */
+  .competitors-page {
+    padding: 12px;
+    gap: 14px;
+  }
+
+  .signals-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .icp-insights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .competitor-chip {
+    min-width: 0;
+    max-width: none;
+    flex-basis: 100%;
+  }
+
+  .icp-segment-name {
+    min-width: 0;
+    flex-basis: 100%;
+  }
+
+  /* Activity feed adjustments */
+  .activity-transition {
+    flex-wrap: wrap;
+  }
+
+  .activity-contact {
+    margin-left: 0;
+    flex-basis: 100%;
+  }
+
+  /* Signal filters: scroll */
+  .signal-filters {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .signal-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .signal-filter-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 6px 12px;
+  }
+
+  /* View toggle */
+  .channels-toolbar {
+    justify-content: center;
+  }
+}
+
+/* ================================================================== */
+/*  Responsive: Small phones (< 380px)                                 */
+/* ================================================================== */
+
+@media (max-width: 379px) {
+  .dashboard-main {
+    padding: 12px;
+  }
+
+  .dashboard-title {
+    font-size: 19px;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-card:not(:last-child) {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .metric-card:nth-child(3),
+  .metric-card:nth-child(4) {
+    border-top: none;
+  }
+
+  .funnel-metrics-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-header {
+    padding: 12px 14px 8px;
+  }
+
+  .panel-body {
+    padding: 10px 14px 14px;
+  }
+}

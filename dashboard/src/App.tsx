@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Robot } from "@phosphor-icons/react";
 import { MetricsPanel } from "./components/MetricsPanel";
 import { TasksPanel } from "./components/TasksPanel";
 import { SocialPanel } from "./components/SocialPanel";
@@ -13,12 +14,22 @@ type Page = "dashboard" | "channels" | "competitors" | "outbound";
 
 function App() {
     const [page, setPage] = useState<Page>("dashboard");
+    const [chatOpen, setChatOpen] = useState(false);
     const [now, setNow] = useState(() => new Date());
 
     useEffect(() => {
         const id = setInterval(() => setNow(new Date()), 60_000);
         return () => clearInterval(id);
     }, []);
+
+    useEffect(() => {
+        if (!chatOpen) return;
+        const handler = (e: KeyboardEvent) => {
+            if (e.key === "Escape") setChatOpen(false);
+        };
+        document.addEventListener("keydown", handler);
+        return () => document.removeEventListener("keydown", handler);
+    }, [chatOpen]);
 
     const dateStr = now.toLocaleDateString("en-US", {
         weekday: "long",
@@ -45,13 +56,15 @@ function App() {
                             className={`nav-tab ${page === "channels" ? "active" : ""}`}
                             onClick={() => setPage("channels")}
                         >
-                            Distribution Channels
+                            <span className="nav-tab-full">Distribution Channels</span>
+                            <span className="nav-tab-short">Channels</span>
                         </button>
                         <button
                             className={`nav-tab ${page === "outbound" ? "active" : ""}`}
                             onClick={() => setPage("outbound")}
                         >
-                            Outbound Funnel
+                            <span className="nav-tab-full">Outbound Funnel</span>
+                            <span className="nav-tab-short">Outbound</span>
                         </button>
                         <button
                             className={`nav-tab ${page === "competitors" ? "active" : ""}`}
@@ -81,7 +94,18 @@ function App() {
                     <CompetitorsPage />
                 )}
             </div>
-            <ChatPanel />
+            <div className={`chat-overlay-backdrop ${chatOpen ? "visible" : ""}`} role="presentation" onClick={() => setChatOpen(false)} />
+            <div className={`chat-container ${chatOpen ? "open" : ""}`}>
+                <ChatPanel />
+            </div>
+            <button
+                className="chat-fab"
+                onClick={() => setChatOpen(!chatOpen)}
+                aria-label={chatOpen ? "Close agent chat" : "Open agent chat"}
+                aria-expanded={chatOpen}
+            >
+                <Robot size={22} weight="bold" />
+            </button>
         </div>
     );
 }
